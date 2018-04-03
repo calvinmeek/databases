@@ -33,12 +33,12 @@
 	  echo 'No records in food';
 	}
 
-	if (!pg_num_rows($result)) {
-	  print("Connection is working, but database is empty.\n");
-	} else {
-	  print "Tables in your database:\n";
-	  while ($row = pg_fetch_row($result)) { print("- $row[0]\n"); }
-	}
+	// if (!pg_num_rows($result)) {
+	//   print("Connection is working, but database is empty.\n");
+	// } else {
+	//   print "Tables in your database:\n";
+	//   while ($row = pg_fetch_row($result)) { print("- $row[0]\n"); }
+	// }
 
 
 ?>
