@@ -26,6 +26,13 @@
 
 	print "<pre>\n";
 
+	if ($row = pg_fetch_row($result)) {
+	  echo "Food: $row[0]";
+	  echo "<br />\n";
+	} else {
+	  echo 'No records in food';
+	}
+
 	if (!pg_num_rows($result)) {
 	  print("Connection is working, but database is empty.\n");
 	} else {
