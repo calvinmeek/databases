@@ -18,7 +18,7 @@
 	    echo 'Connected';
 	}
 
-	$sql = "CREATE TABLE rater ( INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY, fname VARCHAR(15) NOT NULL, lname VARCHAR(20) NOT NULL, email VARCHAR(30) NOT NULL, joinDate DATE NOT NULL, type VARCHAR(15) NOT NULL, rep INT(4) NOT NULL)";
+	$sql = pg_query($conn, "CREATE TABLE rater ( INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY, fname VARCHAR(15) NOT NULL, lname VARCHAR(20) NOT NULL, email VARCHAR(30) NOT NULL, joinDate DATE NOT NULL, type VARCHAR(15) NOT NULL, rep INT(4) NOT NULL)") ;
 	
 	$result = pg_query($conn, "SELECT relname FROM pg_stat_user_tables WHERE schemaname='public'");
 
