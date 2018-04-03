@@ -18,9 +18,9 @@
 	    echo 'Connected';
 	}
 
-	$sql = pg_query($conn, "CREATE TABLE rater (id INT(4) UNSIGNED AUTO_INCREMENT PRIMARY KEY, fname VARCHAR(15) NOT NULL, lname VARCHAR(20) NOT NULL, email VARCHAR(30) NOT NULL, joinDate DATE NOT NULL, type VARCHAR(15) NOT NULL, rep INT(4) NOT NULL)") ;
+	$sql = pg_query($conn, "CREATE TABLE rater (id INT(4) UNSIGNED PRIMARY KEY, fname VARCHAR(15) NOT NULL, lname VARCHAR(20) NOT NULL, email VARCHAR(30) NOT NULL, joinDate DATE NOT NULL, type VARCHAR(15) NOT NULL, rep INT(4) NOT NULL)") ;
 
-	$t1 = pg_query($conn, "INSERT INTO rater(id,fname,lname,email,joinDate,type,rep) VALUES ('Calvin', 'Meek', 'cmeek070@uottawa.ca','Student',7)")
+	$t1 = pg_query($conn, "INSERT INTO rater(id,fname,lname,email,type,rep) VALUES (1,'Calvin', 'Meek', 'cmeek070@uottawa.ca','Student',7)")
 	
 	$result = pg_query($conn, "SELECT * FROM rater");
 
