@@ -26,6 +26,14 @@
 
 	$rater = pg_query($conn, "CREATE TABLE rater(id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, name VARCHAR(15) NOT NULL, join_date CURRENT_DATE			NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)");
 
+	if (!$rater) {
+	  echo "Creating ratingItemTable is not working. \n";
+	  exit;
+	}
+	else{
+	  echo 'RatingItem Table exists';
+	}
+
 
 
 	$rating = pg_query($conn, "CREATE TABLE rating(id INT FOREIGN KEY REFERENCES rater(id), rating_date CURRENT_DATE PRIMARY KEY, price INT, food VARCHAR(25), 			mood VARCHAR(25), commments VARCHAR(255), restarauntID INT FOREIGN KEY REFERENCES restaraunt(restarauntID))");
