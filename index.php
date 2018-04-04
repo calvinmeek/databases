@@ -24,6 +24,8 @@
 
 	$rating = pg_query($conn, "CREATE TABLE rating(id INT FOREIGN KEY REFERENCES rater(id), rating_date DATE PRIMARY KEY, price INT, food VARCHAR(25), mood VARCHAR(25), commments VARCHAR(255), restarauntID INT FOREIGN KEY REFERENCES restaraunt(restarauntID)") ;
 
+	$restaraunt = pg_query($conn, "CREATE TABLE restaraunt(restarauntID INT PRIMARY KEY, name VARCHAR(25) NOT NULL, )")
+
 
 
 	$rater1 = pg_query($conn, "INSERT INTO rater(id,fname,lname,email,type,rep) VALUES (1,'Calvin', 'Meek', 'cmeek070@uottawa.ca','Student',7)");
@@ -33,7 +35,9 @@
 	print "<pre>\n";
 
 	if ($row = pg_fetch_row($result)) {
-	  echo $result;
+	  echo "$row[0]";
+	  echo "$row[1]";
+
 	  echo "<br />\n";
 	} else {
 	  echo 'No records in food';
