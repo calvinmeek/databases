@@ -24,7 +24,7 @@
 
 
 
-	$rater = pg_query($conn, "CREATE TABLE rater(id INT PRIMARY KEY, email VARCHAR(30) NOT NULL, name VARCHAR(15) NOT NULL, join_date DATE NOT NULL, 			type VARCHAR(15) NOT NULL, rep INT NOT NULL)") ;
+	$rater = pg_query($conn, "CREATE TABLE rater(id INT PRIMARY KEY AUTO_INCREMENT, email VARCHAR(30) NOT NULL, name VARCHAR(15) NOT NULL, join_date DATE 			NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)") ;
 
 
 
@@ -60,8 +60,7 @@
 	print "<pre>\n";
 
 	if ($row = pg_fetch_row($result)) {
-	  echo "$row[0] ";
-	  echo "$row[1]";
+	  echo "$row[0] $row[1] $row[2] $row[3] $row[4] $row[5]";
 
 	  echo "<br />\n";
 	} else {
