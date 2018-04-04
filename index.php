@@ -51,7 +51,7 @@
 
 
 
-	$rater1 = pg_query($conn, 'INSERT INTO rater(email,name,type,rep) VALUES ("cmeek070@uottawa.ca","Calvin","Student",7)'); 
+	$rater1 = pg_query($conn, 'INSERT INTO Rater(email,name,type,rep) VALUES ("cmeek070@uottawa.ca","Calvin","Student",7)'); 
 
 
 
