@@ -12,17 +12,23 @@
 	$conn = pg_connect(pg_connection_string_from_database_url());
 
 	if (!$conn) {
-	  echo "An error occurred.\n";
+	  echo "NOT CONNECTED.\n";
 	  exit;
 	} else {
-	    echo 'Connected';
+	    echo 'CONNECTED';
 	}
 
-	$sql = pg_query($conn, "CREATE TABLE rater(id INT PRIMARY KEY, fname VARCHAR(15) NOT NULL, lname VARCHAR(20) NOT NULL, email VARCHAR(30) NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)") ;
+	$rater = pg_query($conn, "CREATE TABLE rater(id INT PRIMARY KEY, fname VARCHAR(15) NOT NULL, lname VARCHAR(20) NOT NULL, email VARCHAR(30) NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)") ;
 
-	$t1 = pg_query($conn, "INSERT INTO rater(id,fname,lname,email,type,rep) VALUES (1,'Calvin', 'Meek', 'cmeek070@uottawa.ca','Student',7)");
+
+
+	$rating = pg_query($conn, "CREATE TABLE rating(id INT FOREIGN KEY REFERENCES rater(id), rating_date DATE PRIMARY KEY, price INT, food VARCHAR(25), mood VARCHAR(25), commments VARCHAR(255), restarauntID INT FOREIGN KEY REFERENCES restaraunt(restarauntID)") ;
+
+
+
+	$rater1 = pg_query($conn, "INSERT INTO rater(id,fname,lname,email,type,rep) VALUES (1,'Calvin', 'Meek', 'cmeek070@uottawa.ca','Student',7)");
 	
-	$result = pg_query($conn, "SELECT * FROM rater");
+	$result = pg_query($conn, "SELECT id, name FROM rater");
 
 	print "<pre>\n";
 
