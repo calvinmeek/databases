@@ -24,10 +24,18 @@
 
 	$rating = pg_query($conn, "CREATE TABLE rating(id INT FOREIGN KEY REFERENCES rater(id), rating_date DATE PRIMARY KEY, price INT, food VARCHAR(25), 			mood VARCHAR(25), commments VARCHAR(255), restarauntID INT FOREIGN KEY REFERENCES restaraunt(restarauntID))");
 
+
 	$restaraunt = pg_query($conn, "CREATE TABLE restaraunt(restarauntID INT PRIMARY KEY, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL,
 				url VARCHAR(255) NOT NULL)");
 
+
 	$location = pg_query($conn, "CREATE TABLE location(locationID INT PRIMARY KEY, first_open_date DATE NOT NULL, manager_name VARCHAR(25) NOT NULL,			phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restarauntID INT FOREIGN KEY REFERENCES restaraunt(restarauntID))");
+
+
+	$menuItem = pg_query($conn, "CREATE TABLE menuItem(itemID INT PRIMARY KEY NOT NULL, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, category VARCHAR(25) NOT NULL, description VARCHAR(255) NOT NULL, price INT NOT NULL, restarauntID INT FOREIGN KEY REFERENCES restaraunt(restarauntID))");
+
+
+	$ratingItem = pg_query($conn, "CREATE TABLE ratingItem(id INT FOREIGN KEY REFERENCES rater(id), date_stamp DATE NOT NULL, itemID INT FOREIGN KEY REFERENCES menuItem(itemID) NOT NULL, rating INT NOT NULL, comment VARCHAR(255), PRIMARY KEY(id,date_stamp,itemID))");
 
 
 
