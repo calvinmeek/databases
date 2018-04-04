@@ -56,7 +56,7 @@
 	  exit;
 	}
 	else{
-	  echo "Rating Table exists\n"
+	  echo "Rating Table exists\n";
 	}
 
 
