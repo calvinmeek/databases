@@ -51,22 +51,22 @@
 
 
 
-	$rater1 = pg_query($conn, 'INSERT INTO Rater(email,name,type,rep) VALUES ("cmeek070@uottawa.ca","Calvin","Student",7)');
+	// $rater1 = pg_query($conn, 'INSERT INTO Rater(email,name,type,rep) VALUES ("cmeek070@uottawa.ca","Calvin","Student",7)');
 
 
 
 	
-	$result = pg_query($conn, 'SELECT id, name FROM Rater');
+	// $result = pg_query($conn, 'SELECT id, name FROM Rater');
 
-	print '<pre>\n';
+	// print '<pre>\n';
 
-	if ($row = pg_fetch_row($result)) {
-	  echo "$row[0] $row[1] $row[2] $row[3] $row[4] $row[5]";
+	// if ($row = pg_fetch_row($result)) {
+	//   echo "$row[0] $row[1] $row[2] $row[3] $row[4] $row[5]";
 
-	  echo "<br />\n";
-	} else {
-	  echo "No records in food";
-	}
+	//   echo "<br />\n";
+	// } else {
+	//   echo "No records in food";
+	// }
 
 	// if (!pg_num_rows($result)) {
 	//   print('Connection is working, but database is empty.\n');
