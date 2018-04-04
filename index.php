@@ -22,7 +22,7 @@
 
 	// ############################################################# CREATING TABLES #############################################################
 
-	$drop = pg_query($conn, 'DROP TABLE *');
+	$drop = pg_query($conn, 'DROP SCHEMA public CASCADE');
 
 	// $rater = pg_query($conn, 'CREATE TABLE Rater(id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, name VARCHAR(15) NOT NULL, join_date CURRENT_DATE			NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)');
 
