@@ -41,7 +41,7 @@
 	$menuItem = pg_query($conn, 'CREATE TABLE menuItem(itemID INT PRIMARY KEY NOT NULL, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, category VARCHAR(25) NOT NULL, description VARCHAR(255) NOT NULL, price INT NOT NULL, restarauntID INT FOREIGN KEY REFERENCES restaraunt(restarauntID))');
 
 
-	$ratingItem = pg_query($conn, 'CREATE TABLE ratingItem(id INT FOREIGN KEY REFERENCES rater(id), date_stamp CURRENT_DATE NOT NULL, itemID INT FOREIGN KEY REFERENCES menuItem(itemID) NOT NULL, rating INT NOT NULL, comment VARCHAR(255), PRIMARY KEY(id,date_stamp,itemID))');
+	$ratingItem = pg_query($conn, 'CREATE TABLE ratingItem(id INT FOREIGN KEY REFERENCES Rater(id), date_stamp CURRENT_DATE NOT NULL, itemID INT FOREIGN KEY REFERENCES menuItem(itemID) NOT NULL, rating INT NOT NULL, comment VARCHAR(255), PRIMARY KEY(id,date_stamp,itemID))');
 
 
 
