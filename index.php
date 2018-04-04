@@ -18,7 +18,13 @@
 	    echo 'CONNECTED';
 	}
 
-	$rater = pg_query($conn, "CREATE TABLE rater(id INT PRIMARY KEY, fname VARCHAR(15) NOT NULL, lname VARCHAR(20) NOT NULL, email VARCHAR(30) NOT NULL, 		type VARCHAR(15) NOT NULL, rep INT NOT NULL)") ;
+
+
+	// ############################################################# CREATING TABLES #############################################################
+
+
+
+	$rater = pg_query($conn, "CREATE TABLE rater(id INT PRIMARY KEY, email VARCHAR(30) NOT NULL, name VARCHAR(15) NOT NULL, join_date DATE NOT NULL, 			type VARCHAR(15) NOT NULL, rep INT NOT NULL)") ;
 
 
 
@@ -29,7 +35,7 @@
 				url VARCHAR(255) NOT NULL)");
 
 
-	$location = pg_query($conn, "CREATE TABLE location(locationID INT PRIMARY KEY, first_open_date DATE NOT NULL, manager_name VARCHAR(25) NOT NULL,			phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restarauntID INT FOREIGN KEY REFERENCES restaraunt(restarauntID))");
+	$location = pg_query($conn, "CREATE TABLE location(locationID INT PRIMARY KEY AUTO_INCREMENT, first_open_date DATE NOT NULL, manager_name VARCHAR(25) NOT NULL,			phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restarauntID INT FOREIGN KEY REFERENCES restaraunt(restarauntID))");
 
 
 	$menuItem = pg_query($conn, "CREATE TABLE menuItem(itemID INT PRIMARY KEY NOT NULL, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, category VARCHAR(25) NOT NULL, description VARCHAR(255) NOT NULL, price INT NOT NULL, restarauntID INT FOREIGN KEY REFERENCES restaraunt(restarauntID))");
@@ -39,7 +45,15 @@
 
 
 
-	$rater1 = pg_query($conn, "INSERT INTO rater(id,fname,lname,email,type,rep) VALUES (1,'Calvin', 'Meek', 'cmeek070@uottawa.ca','Student',7)");
+	// ############################################################# POPULATING TABLES #############################################################
+
+
+
+
+	$rater1 = pg_query($conn, "INSERT INTO rater(email,name,type,rep) VALUES ('cmeek070@uottawa.ca','Calvin','Student',7)");
+
+
+
 	
 	$result = pg_query($conn, "SELECT id, fname FROM rater");
 
