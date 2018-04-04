@@ -24,7 +24,7 @@
 
 
 
-	$rater = pg_query($conn, "CREATE TABLE rater(id INT PRIMARY KEY BIGSERIAL, email VARCHAR(30) NOT NULL, name VARCHAR(15) NOT NULL, join_date DATE 			NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)") ;
+	$rater = pg_query($conn, "CREATE TABLE rater(id BIGSERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, name VARCHAR(15) NOT NULL, join_date DATE 			NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)") ;
 
 
 
@@ -35,7 +35,7 @@
 				url VARCHAR(255) NOT NULL)");
 
 
-	$location = pg_query($conn, "CREATE TABLE location(locationID INT PRIMARY KEY BIGSERIAL, first_open_date DATE NOT NULL, manager_name VARCHAR(25) NOT NULL,			phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restarauntID INT FOREIGN KEY REFERENCES restaraunt(restarauntID))");
+	$location = pg_query($conn, "CREATE TABLE location(locationID BIGSERIAL PRIMARY KEY, first_open_date DATE NOT NULL, manager_name VARCHAR(25) NOT NULL,			phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restarauntID INT FOREIGN KEY REFERENCES restaraunt(restarauntID))");
 
 
 	$menuItem = pg_query($conn, "CREATE TABLE menuItem(itemID INT PRIMARY KEY NOT NULL, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, category VARCHAR(25) NOT NULL, description VARCHAR(255) NOT NULL, price INT NOT NULL, restarauntID INT FOREIGN KEY REFERENCES restaraunt(restarauntID))");
