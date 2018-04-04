@@ -88,7 +88,7 @@
 	  exit;
 	}
 	else{
-	  echo "RatingItem Table exists\n";
+	  echo "RatingItem Table exists\n"
 	}
 
 
