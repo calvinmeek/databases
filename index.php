@@ -18,13 +18,16 @@
 	    echo 'CONNECTED';
 	}
 
-	$rater = pg_query($conn, "CREATE TABLE rater(id INT PRIMARY KEY, fname VARCHAR(15) NOT NULL, lname VARCHAR(20) NOT NULL, email VARCHAR(30) NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)") ;
+	$rater = pg_query($conn, "CREATE TABLE rater(id INT PRIMARY KEY, fname VARCHAR(15) NOT NULL, lname VARCHAR(20) NOT NULL, email VARCHAR(30) NOT NULL, 		type VARCHAR(15) NOT NULL, rep INT NOT NULL)") ;
 
 
 
-	$rating = pg_query($conn, "CREATE TABLE rating(id INT FOREIGN KEY REFERENCES rater(id), rating_date DATE PRIMARY KEY, price INT, food VARCHAR(25), mood VARCHAR(25), commments VARCHAR(255), restarauntID INT FOREIGN KEY REFERENCES restaraunt(restarauntID)") ;
+	$rating = pg_query($conn, "CREATE TABLE rating(id INT FOREIGN KEY REFERENCES rater(id), rating_date DATE PRIMARY KEY, price INT, food VARCHAR(25), 			mood VARCHAR(25), commments VARCHAR(255), restarauntID INT FOREIGN KEY REFERENCES restaraunt(restarauntID))");
 
-	$restaraunt = pg_query($conn, "CREATE TABLE restaraunt(restarauntID INT PRIMARY KEY, name VARCHAR(25) NOT NULL, )");
+	$restaraunt = pg_query($conn, "CREATE TABLE restaraunt(restarauntID INT PRIMARY KEY, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL,
+				url VARCHAR(255) NOT NULL)");
+
+	$location = pg_query($conn, "CREATE TABLE location(locationID INT PRIMARY KEY, first_open_date DATE NOT NULL, manager_name VARCHAR(25) NOT NULL,			phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restarauntID INT FOREIGN KEY REFERENCES restaraunt(restarauntID))");
 
 
 
