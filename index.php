@@ -33,7 +33,7 @@
 	print "<pre>\n";
 
 	if ($row = pg_fetch_row($result)) {
-	  echo "Food: $row[0]";
+	  echo $result;
 	  echo "<br />\n";
 	} else {
 	  echo 'No records in food';
