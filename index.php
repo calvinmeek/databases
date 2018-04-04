@@ -55,7 +55,7 @@
 
 
 	
-	$result = pg_query($conn, "SELECT id, fname FROM rater");
+	$result = pg_query($conn, "SELECT id, name FROM rater");
 
 	print "<pre>\n";
 
