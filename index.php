@@ -27,11 +27,11 @@
 	$rater = pg_query($conn, "CREATE TABLE rater(id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, name VARCHAR(15) NOT NULL, join_date DATE			NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)");
 
 	if (!$rater) {
-	  echo "Creating ratingItemTable is not working. \n";
+	  echo "Creating rater is not working. \n";
 	  exit;
 	}
 	else{
-	  echo 'Rating Table exists\n';
+	  echo "Rater Table exists\n";
 	}
 
 
@@ -39,11 +39,11 @@
 	$rating = pg_query($conn, "CREATE TABLE rating(id INT FOREIGN KEY REFERENCES rater(id), rating_date CURRENT_DATE PRIMARY KEY, price INT, food VARCHAR(25), 			mood VARCHAR(25), commments VARCHAR(255), restarauntID INT FOREIGN KEY REFERENCES restaraunt(restarauntID))");
 
 	if (!$rating) {
-	  echo "Creating ratingItemTable is not working. \n";
+	  echo "Creating rating is not working. \n";
 	  exit;
 	}
 	else{
-	  echo 'Rating Table exists\n';
+	  echo "Rating Table exists\n";
 	}
 
 
@@ -51,44 +51,44 @@
 				url VARCHAR(255) NOT NULL)");
 
 	if (!$restaraunt) {
-	  echo "Creating ratingItemTable is not working. \n";
+	  echo "Creating restaraunt is not working. \n";
 	  exit;
 	}
 	else{
-	  echo 'Rating Table exists\n';
+	  echo "restaraunt Table exists\n";
 	}
 
 
 	$location = pg_query($conn, "CREATE TABLE location(locationID SERIAL PRIMARY KEY, first_open_date CURRENT_DATE NOT NULL, manager_name VARCHAR(25) NOT NULL,	phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restarauntID INT FOREIGN KEY REFERENCES restaraunt(restarauntID))");
 
 	if (!$location) {
-	  echo "Creating ratingItemTable is not working. \n";
+	  echo "Creating location is not working. \n";
 	  exit;
 	}
 	else{
-	  echo 'Rating Table exists\n';
+	  echo "location Table exists\n";
 	}
 
 
 	$menuItem = pg_query($conn, "CREATE TABLE menuItem(itemID INT PRIMARY KEY NOT NULL, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, category VARCHAR(25) NOT NULL, description VARCHAR(255) NOT NULL, price INT NOT NULL, restarauntID INT FOREIGN KEY REFERENCES restaraunt(restarauntID))");
 
 	if (!$menuItem) {
-	  echo "Creating ratingItemTable is not working. \n";
+	  echo "Creating menuItem is not working. \n";
 	  exit;
 	}
 	else{
-	  echo 'Rating Table exists\n';
+	  echo "menuItem Table exists\n";
 	}
 
 
 	$ratingItem = pg_query($conn, "CREATE TABLE ratingItem(id INT FOREIGN KEY REFERENCES rater(id), date_stamp CURRENT_DATE NOT NULL, itemID INT FOREIGN KEY REFERENCES menuItem(itemID) NOT NULL, rating INT NOT NULL, comment VARCHAR(255), PRIMARY KEY(id,date_stamp,itemID))");
 
 	if (!$ratingItem) {
-	  echo "Creating ratingItemTable is not working. \n";
+	  echo "Creating ratingItem is not working. \n";
 	  exit;
 	}
 	else{
-	  echo 'Rating Table exists\n';
+	  echo "RatingItem Table exists\n";
 	}
 
 
