@@ -60,7 +60,7 @@
 	print "<pre>\n";
 
 	if ($row = pg_fetch_row($result)) {
-	  echo "$row[0]";
+	  echo "$row[0] ";
 	  echo "$row[1]";
 
 	  echo "<br />\n";
