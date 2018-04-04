@@ -36,17 +36,6 @@
 
 
 
-	$rating = pg_query($conn, "CREATE TABLE rating(id INT REFERENCES rater(id), rating_date DATE PRIMARY KEY, price INT, food VARCHAR(25), 			mood VARCHAR(25), commments VARCHAR(255), restarauntID INT REFERENCES restaraunt(restarauntID))");
-
-	if (!$rating) {
-	  echo "Creating rating is not working. \n";
-	  exit;
-	}
-	else{
-	  echo "Rating Table exists\n";
-	}
-
-
 	$restaraunt = pg_query($conn, "CREATE TABLE restaraunt(restarauntID INT PRIMARY KEY, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL,
 				url VARCHAR(255) NOT NULL)");
 
@@ -57,6 +46,21 @@
 	else{
 	  echo "restaraunt Table exists\n";
 	}
+
+
+
+	$rating = pg_query($conn, "CREATE TABLE rating(id INT REFERENCES rater(id), rating_date DATE PRIMARY KEY, price INT, food VARCHAR(25), 			mood VARCHAR(25), commments VARCHAR(255), restarauntID INT REFERENCES restaraunt(restarauntID))");
+
+	if (!$rating) {
+	  echo "Creating rating is not working. \n";
+	  exit;
+	}
+	else{
+	  echo "Rating Table exists\n"
+	}
+
+
+	
 
 
 	$location = pg_query($conn, "CREATE TABLE location(locationID SERIAL PRIMARY KEY, first_open_date CURRENT_DATE NOT NULL, manager_name VARCHAR(25) NOT NULL,	phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restarauntID INT REFERENCES restaraunt(restarauntID))");
