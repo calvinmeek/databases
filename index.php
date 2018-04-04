@@ -28,7 +28,7 @@
 
 	$rater1 = pg_query($conn, "INSERT INTO rater(id,fname,lname,email,type,rep) VALUES (1,'Calvin', 'Meek', 'cmeek070@uottawa.ca','Student',7)");
 	
-	$result = pg_query($conn, "SELECT id, name FROM rater");
+	$result = pg_query($conn, "SELECT id, fname FROM rater");
 
 	print "<pre>\n";
 
