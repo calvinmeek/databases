@@ -24,7 +24,7 @@
 
 	// $drop = pg_query($conn, "DROP SCHEMA public CASCADE");
 
-	$rater = pg_query($conn, "CREATE TABLE rater(id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, name VARCHAR(15) NOT NULL, join_date CURRENT_DATE			NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)");
+	$rater = pg_query($conn, "CREATE TABLE rater(id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, name VARCHAR(15) NOT NULL, join_date DATE			NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)");
 
 	if (!$rater) {
 	  echo "Creating ratingItemTable is not working. \n";
