@@ -131,6 +131,7 @@
 
 		while(i < 15){
 			echo "$row[0] $row[1] $row[2] $row[3] $row[4] $row[5]\n\n";
+			i++;
 		}
 
 	  // echo "$row[0] $row[1] $row[2] $row[3] $row[4] $row[5]";
