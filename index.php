@@ -85,20 +85,20 @@
 	$rater14 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('biker1234578@email.ca','Jake','11-12-23','Online',5)");
 	
 
-	// $$$$$$$$$$$$$$$$$$$$$$ ADDING RESTRAUNTS $$$$$$$$$$$$$$$$$$$$$$
+	// $$$$$$$$$$$$$$$$$$$$$$ ADDING restaurantS $$$$$$$$$$$$$$$$$$$$$$
 
-	$restraunt0 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Best Food Ever','American','www.bestfood.com')");
-	$restraunt1 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Pizza Lovers','American','www.pizzalovers.com')");
-	$restraunt2 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Sushi Palace','Sushi','www.sushipalace.com')");
-	$restraunt3 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Italian Pasta','Italian','www.ipasta.com')");
-	$restraunt4 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Burger Master','American','www.burgermaster.com')");
-	$restraunt5 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Icecream Delight','Dessert','www.id.com')");
-	$restraunt6 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Taste of Asia','Asian','www.toa.com')");
-	$restraunt7 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Steak House','American','www.steakhouse.com')");
-	$restraunt8 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Shawarma Palooza','Middle Eastern','www.spalooza.com')");
-	$restraunt9 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Eat n Play','American','www.eatnplay.com')");
-	$restraunt10 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Ballin Burgers','American','www.ballinburgers.com')");
-	$restraunt11 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('French Cuisine','French','www.fc.com')");
+	$restaurant0 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Best Food Ever','American','www.bestfood.com')");
+	$restaurant1 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Pizza Lovers','American','www.pizzalovers.com')");
+	$restaurant2 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Sushi Palace','Sushi','www.sushipalace.com')");
+	$restaurant3 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Italian Pasta','Italian','www.ipasta.com')");
+	$restaurant4 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Burger Master','American','www.burgermaster.com')");
+	$restaurant5 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Icecream Delight','Dessert','www.id.com')");
+	$restaurant6 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Taste of Asia','Asian','www.toa.com')");
+	$restaurant7 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Steak House','American','www.steakhouse.com')");
+	$restaurant8 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Shawarma Palooza','Middle Eastern','www.spalooza.com')");
+	$restaurant9 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Eat n Play','American','www.eatnplay.com')");
+	$restaurant10 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Ballin Burgers','American','www.ballinburgers.com')");
+	$restaurant11 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('French Cuisine','French','www.fc.com')");
 
 
 
