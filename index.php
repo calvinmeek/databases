@@ -110,7 +110,40 @@
 
 
 	
-	$result = pg_query($conn, "SELECT * FROM rater");
+	// $result = pg_query($conn, "SELECT * FROM rater");
+
+	// print "<pre>\n";
+
+	// if ($fetch = pg_fetch_all($result)) {
+
+	// 	echo '<table>
+ //        <tr>
+ //         <td>ID</td>
+ //         <td>Email</td>
+ //         <td>Name</td>
+ //        </tr>';
+
+	// 	foreach($fetch as $array)
+	// 	{
+	// 	    echo '<tr>
+	// 	    		<td>'. $array['id'].'</td>
+	// 	            <td>'. $array['email'].'</td>
+	// 	            <td>'. $array['name'].'</td>
+	// 	          </tr>';
+	// 	}
+	// 	echo '</table>';
+
+	//   	echo "<br />\n";
+	// } else {
+	//   echo "NO RECORDS FOUND";
+	// }
+
+
+
+
+
+
+	$result = pg_query($conn, "SELECT * FROM restaraunt");
 
 	print "<pre>\n";
 
@@ -119,16 +152,18 @@
 		echo '<table>
         <tr>
          <td>ID</td>
-         <td>Email</td>
          <td>Name</td>
+         <td>Type</td>
+         <td>URL</td>
         </tr>';
 
 		foreach($fetch as $array)
 		{
 		    echo '<tr>
-		    		<td>'. $array['id'].'</td>
-		            <td>'. $array['email'].'</td>
+		    		<td>'. $array['restrauntID'].'</td>
 		            <td>'. $array['name'].'</td>
+		            <td>'. $array['type'].'</td>
+		            <td>'. $array['url'].'</td>
 		          </tr>';
 		}
 		echo '</table>';
