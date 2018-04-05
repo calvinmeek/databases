@@ -297,7 +297,7 @@
 	$rating20 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (12,'12-6-18',1,5,5,'',12)");
 	$rating21 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (13,'02-1-22',4,3,3,'',4)");
 	$rating22 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (15,'09-6-18',3,2,2,'',11)");
-	$rating23 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (4,'02-06-18',3,3,5,'',9)");
+	$rating23 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (4,'12-06-18',3,3,5,'',9)");
 
 
 				// %%%%%%%%%%%%%%%%% PRINT RATINGS TABLE %%%%%%%%%%%%%%%%%
