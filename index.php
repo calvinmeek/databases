@@ -249,10 +249,45 @@
 
 
 
+	// $$$$$$$$$$$$$$$$$$$$$$ ADDING RATINGS $$$$$$$$$$$$$$$$$$$$$$
+
+	$rating1 = pg_query($conn, "INSERT INTO rating(id,price,food,mood,commments,restaurantID) VALUES (1,4,3,5,'',1)");
 
 
+				// %%%%%%%%%%%%%%%%% PRINT RATINGS TABLE %%%%%%%%%%%%%%%%%
 
 
+				$result = pg_query($conn, "SELECT * FROM rating");
+
+				print "<pre>\n";
+
+				if ($fetch = pg_fetch_all($result)) {
+
+					echo '<table>
+			        <tr>
+			         <td>ID</td>
+			         <td>Price</td>
+			         <td>Food</td>
+			         <td>Mood</td>
+			         <td>R_ID</td>
+			        </tr>';
+
+					foreach($fetch as $array)
+					{
+					    echo '<tr>
+					    		<td>'. $array['id'].'</td>
+					            <td>'. $array['price'].'</td>
+					            <td>'. $array['food'].'</td>
+					            <td>'. $array['mood'].'</td>
+					            <td>'. $array['restaurantid'].'</td>
+					          </tr>';
+					}
+					echo '</table>';
+
+				  	echo "<br />\n";
+				} else {
+				  echo "NO RECORDS FOUND";
+				}
 
 
 
