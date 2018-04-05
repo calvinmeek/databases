@@ -24,7 +24,7 @@
 
 	// $drop = pg_query($conn, "DROP SCHEMA public CASCADE");
 
-	$rater = pg_query($conn, "CREATE TABLE rater(id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, name VARCHAR(15) NOT NULL, join_date DATE			NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)");
+	$rater = pg_query($conn, "CREATE TABLE IF NOT EXISTS rater(id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, name VARCHAR(15) NOT NULL, join_date DATE			NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)");
 
 	if (!$rater) {
 	  echo "Creating rater is not working. \n";
@@ -36,7 +36,7 @@
 
 
 
-	$restaraunt = pg_query($conn, "CREATE TABLE restaraunt(restarauntID INT PRIMARY KEY, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL,
+	$restaraunt = pg_query($conn, "CREATE TABLE IF NOT EXISTS restaraunt(restarauntID INT PRIMARY KEY, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL,
 				url VARCHAR(255) NOT NULL)");
 
 	if (!$restaraunt) {
@@ -49,7 +49,7 @@
 
 
 
-	$rating = pg_query($conn, "CREATE TABLE rating(id INT REFERENCES rater(id), rating_date DATE PRIMARY KEY, price INT, food VARCHAR(25), 			mood VARCHAR(25), commments VARCHAR(255), restarauntID INT REFERENCES restaraunt(restarauntID))");
+	$rating = pg_query($conn, "CREATE TABLE IF NOT EXISTS rating(id INT REFERENCES rater(id), rating_date DATE PRIMARY KEY, price INT, food VARCHAR(25), 			mood VARCHAR(25), commments VARCHAR(255), restarauntID INT REFERENCES restaraunt(restarauntID))");
 
 	if (!$rating) {
 	  echo "Creating rating is not working. \n";
@@ -63,7 +63,7 @@
 	
 
 
-	$location = pg_query($conn, "CREATE TABLE location(locationID SERIAL PRIMARY KEY, first_open_date CURRENT_DATE NOT NULL, manager_name VARCHAR(25) NOT NULL,	phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restarauntID INT REFERENCES restaraunt(restarauntID))");
+	$location = pg_query($conn, "CREATE TABLE IF NOT EXISTS location(locationID SERIAL PRIMARY KEY, first_open_date CURRENT_DATE NOT NULL, manager_name VARCHAR(25) NOT NULL,	phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restarauntID INT REFERENCES restaraunt(restarauntID))");
 
 	if (!$location) {
 	  echo "Creating location is not working. \n";
@@ -74,7 +74,7 @@
 	}
 
 
-	$menuItem = pg_query($conn, "CREATE TABLE menuItem(itemID INT PRIMARY KEY NOT NULL, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, category VARCHAR(25) NOT NULL, description VARCHAR(255) NOT NULL, price INT NOT NULL, restarauntID INT REFERENCES restaraunt(restarauntID))");
+	$menuItem = pg_query($conn, "CREATE TABLE IF NOT EXISTS menuItem(itemID INT PRIMARY KEY NOT NULL, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, category VARCHAR(25) NOT NULL, description VARCHAR(255) NOT NULL, price INT NOT NULL, restarauntID INT REFERENCES restaraunt(restarauntID))");
 
 	if (!$menuItem) {
 	  echo "Creating menuItem is not working. \n";
@@ -85,7 +85,7 @@
 	}
 
 
-	$ratingItem = pg_query($conn, "CREATE TABLE ratingItem(id INT REFERENCES rater(id), date_stamp CURRENT_DATE NOT NULL, itemID INT FOREIGN KEY REFERENCES menuItem(itemID) NOT NULL, rating INT NOT NULL, comment VARCHAR(255), PRIMARY KEY(id,date_stamp,itemID))");
+	$ratingItem = pg_query($conn, "CREATE TABLE IF NOT EXISTS ratingItem(id INT REFERENCES rater(id), date_stamp CURRENT_DATE NOT NULL, itemID INT FOREIGN KEY REFERENCES menuItem(itemID) NOT NULL, rating INT NOT NULL, comment VARCHAR(255), PRIMARY KEY(id,date_stamp,itemID))");
 
 	if (!$ratingItem) {
 	  echo "Creating ratingItem is not working. \n";
