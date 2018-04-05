@@ -35,7 +35,7 @@
 
 
 
-	$rating = pg_query($conn, "CREATE TABLE IF NOT EXISTS rating(id INT REFERENCES rater(id), rating_date VARCHAR(10) PRIMARY KEY, price INT, food INT, 			mood INT, commments VARCHAR(255), restaurantID INT REFERENCES restaurant(restaurantID))");
+	$rating = pg_query($conn, "CREATE TABLE IF NOT EXISTS rating(id INT REFERENCES rater(id), rating_date VARCHAR(10), price INT, food INT, 			mood INT, commments VARCHAR(255), restaurantID INT REFERENCES restaurant(restaurantID), PRIMARY KEY(id,rating_date))");
 
 
 
@@ -273,6 +273,30 @@
 	$rating20 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (12,'12-26-18',1,5,5,'',12)");
 	$rating21 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (13,'02-12-11',4,3,3,'',11)");
 	$rating22 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (15,'09-06-18',3,2,2,'',11)");
+	$rating23 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (4,'02-06-18',3,3,5,'',9)");
+
+	$rating1 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (1,'03-11-18',4,1,5,'',1)");
+	$rating2 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (1,'11-03-12',1,4,2,'',1)");
+	$rating3 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (1,'10-15-18',3,5,3,'',1)");
+	$rating4 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (1,'1-6-18',5,2,5,'',3)");
+	$rating5 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (1,'1-2-18',5,2,5,'',2)");
+	$rating6 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (7,'12-22-18',1,3,2,'',3)");
+	$rating7 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (8,'08-22-18',2,1,1,'',2)");
+	$rating8 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (9,'09-15-11',3,4,2,'',4)");
+	$rating9 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (1,'06-6-19',4,2,4,'',5)");
+	$rating10 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (3,'04-6-67',3,1,4,'',11)");
+	$rating11 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (5,'03-10-98',2,5,2,'',3)");
+	$rating12 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (3,'01-12-94',1,2,5,'',12)");
+	$rating13 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (6,'02-13-15',1,4,3,'',7)");
+	$rating14 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (7,'03-11-18',3,1,5,'',5)");
+	$rating15 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (8,'05-12-18',4,3,5,'',7)");
+	$rating16 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (9,'05-13-48',4,3,4,'',7)");
+	$rating17 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (10,'05-9-18',4,3,2,'',7)");
+	$rating18 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (11,'05-22-18',5,1,2,'',3)");
+	$rating19 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (11,'12-1-12',2,3,5,'',2)");
+	$rating20 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (12,'12-6-18',1,5,5,'',12)");
+	$rating21 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (13,'02-1-22',4,3,3,'',4)");
+	$rating22 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (15,'09-6-18',3,2,2,'',11)");
 	$rating23 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (4,'02-06-18',3,3,5,'',9)");
 
 
