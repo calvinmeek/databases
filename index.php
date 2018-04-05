@@ -26,38 +26,37 @@
 
 	$rater = pg_query($conn, "CREATE TABLE IF NOT EXISTS rater(id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, name VARCHAR(15) NOT NULL, join_date VARCHAR(30) NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)");
 
-	if (!$rater) {
-	  echo "Creating rater is not working. \n";
-	  exit;
-	}
-	else{
-	  echo "Rater Table exists\n";
-	}
+	// if (!$rater) {
+	//   echo "Creating rater is not working. \n";
+	//   exit;
+	// }
+	// else{
+	//   echo "Rater Table exists\n";
+	// }
 
 
 
-	$restaraunt = pg_query($conn, "CREATE TABLE IF NOT EXISTS restaraunt(restarauntID INT PRIMARY KEY, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL,
-				url VARCHAR(255) NOT NULL)");
+	$restaraunt = pg_query($conn, "CREATE TABLE IF NOT EXISTS restaraunt(restarauntID INT PRIMARY KEY, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, url VARCHAR(255) NOT NULL)");
 
-	if (!$restaraunt) {
-	  echo "Creating restaraunt is not working. \n";
-	  exit;
-	}
-	else{
-	  echo "restaraunt Table exists\n";
-	}
+	// if (!$restaraunt) {
+	//   echo "Creating restaraunt is not working. \n";
+	//   exit;
+	// }
+	// else{
+	//   echo "restaraunt Table exists\n";
+	// }
 
 
 
 	$rating = pg_query($conn, "CREATE TABLE IF NOT EXISTS rating(id INT REFERENCES rater(id), rating_date DATE PRIMARY KEY, price INT, food VARCHAR(25), 			mood VARCHAR(25), commments VARCHAR(255), restarauntID INT REFERENCES restaraunt(restarauntID))");
 
-	if (!$rating) {
-	  echo "Creating rating is not working. \n";
-	  exit;
-	}
-	else{
-	  echo "Rating Table exists\n";
-	}
+	// if (!$rating) {
+	//   echo "Creating rating is not working. \n";
+	//   exit;
+	// }
+	// else{
+	//   echo "Rating Table exists\n";
+	// }
 
 
 	
@@ -65,34 +64,34 @@
 
 	$location = pg_query($conn, "CREATE TABLE IF NOT EXISTS location(locationID SERIAL PRIMARY KEY, first_open_date DATE NOT NULL, manager_name VARCHAR(25) NOT NULL,	phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restarauntID INT REFERENCES restaraunt(restarauntID))");
 
-	if (!$location) {
-	  echo "Creating location is not working. \n";
-	  exit;
-	}
-	else{
-	  echo "location Table exists\n";
-	}
+	// if (!$location) {
+	//   echo "Creating location is not working. \n";
+	//   exit;
+	// }
+	// else{
+	//   echo "location Table exists\n";
+	// }
 
 
 	$menuItem = pg_query($conn, "CREATE TABLE IF NOT EXISTS menuItem(itemID INT PRIMARY KEY NOT NULL, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, category VARCHAR(25) NOT NULL, description VARCHAR(255) NOT NULL, price INT NOT NULL, restarauntID INT REFERENCES restaraunt(restarauntID))");
 
-	if (!$menuItem) {
-	  echo "Creating menuItem is not working. \n";
-	  exit;
-	}
-	else{
-	  echo "menuItem Table exists\n";
-	}
+	// if (!$menuItem) {
+	//   echo "Creating menuItem is not working. \n";
+	//   exit;
+	// }
+	// else{
+	//   echo "menuItem Table exists\n";
+	// }
 
 
 	$ratingItem = pg_query($conn, "CREATE TABLE IF NOT EXISTS ratingItem(id INT REFERENCES rater(id), date_stamp VARCHAR(25) NOT NULL, itemID INT REFERENCES menuItem(itemID) NOT NULL, rating INT NOT NULL, comment VARCHAR(255), PRIMARY KEY(id,date_stamp,itemID))");
 
-	if (!$ratingItem) {
-	  echo "Creating ratingItem is not working. \n";
+	if (!$ratingItem && !$menuItem && !$location && !$rating && !$restaraunt && !$rater) {
+	  echo "TABLES NOT GENERATED CORRECTLY\n";
 	  exit;
 	}
 	else{
-	  echo "RatingItem Table exists\n";
+	  echo "TABLE GENERATION SUCCESSFUL\n";
 	}
 
 
