@@ -125,14 +125,22 @@
 
 	print "<pre>\n";
 
-	if ($row = pg_fetch_all($result)) {
+	if ($fetch = pg_fetch_all($result)) {
 
-		$i = 0;
+		echo '<table>
+        <tr>
+         <td>Email</td>
+         <td>Name</td>
+        </tr>';
 
-		while(i < 15){
-			echo "$row[0] $row[1] $row[2] $row[3] $row[4] $row[5]\n\n";
-			$i++;
+		foreach($fetch as $array)
+		{
+		    echo '<tr>
+		            <td>'. $array['email'].'</td>
+		            <td>'. $array['name'].'</td>
+		          </tr>';
 		}
+		echo '</table>';
 
 	  // echo "$row[0] $row[1] $row[2] $row[3] $row[4] $row[5]";
 	  // echo "$result";
