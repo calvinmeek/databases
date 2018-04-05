@@ -12,7 +12,7 @@
 	$conn = pg_connect(pg_connection_string_from_database_url());
 
 	if (!$conn) {
-	  echo "NOT CONNECTED\n";
+	  echo "NOT_CONNECTED\n";
 	  exit;
 	} else {
 	    echo "CONNECTED\n";
@@ -87,11 +87,11 @@
 	$ratingItem = pg_query($conn, "CREATE TABLE IF NOT EXISTS ratingItem(id INT REFERENCES rater(id), date_stamp VARCHAR(25) NOT NULL, itemID INT REFERENCES menuItem(itemID) NOT NULL, rating INT NOT NULL, comment VARCHAR(255), PRIMARY KEY(id,date_stamp,itemID))");
 
 	if (!$ratingItem && !$menuItem && !$location && !$rating && !$restaraunt && !$rater) {
-	  echo "TABLES NOT GENERATED CORRECTLY\n";
+	  echo "TABLE_GENERATION_FAILED\n";
 	  exit;
 	}
 	else{
-	  echo "TABLE GENERATION SUCCESSFUL\n";
+	  echo "TABL_ GENERATION_SUCCESSFUL\n";
 	}
 
 
