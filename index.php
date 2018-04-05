@@ -160,7 +160,7 @@
 		foreach($fetch as $array)
 		{
 		    echo '<tr>
-		    		<td>'. $array['restrauntID'].'</td>
+		    		<td>'. $array['restrauntid'].'</td>
 		            <td>'. $array['name'].'</td>
 		            <td>'. $array['type'].'</td>
 		            <td>'. $array['url'].'</td>
