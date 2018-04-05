@@ -15,7 +15,7 @@
 	  echo "NOT CONNECTED\n";
 	  exit;
 	} else {
-	    echo "CONNECTED";
+	    echo "CONNECTED\n";
 	}
 
 
