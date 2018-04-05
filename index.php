@@ -160,7 +160,7 @@
 		foreach($fetch as $array)
 		{
 		    echo '<tr>
-		    		<td>'. $array['restaurantTD'].'</td>
+		    		<td>'. $array['restaurantID'].'</td>
 		            <td>'. $array['name'].'</td>
 		            <td>'. $array['type'].'</td>
 		            <td>'. $array['url'].'</td>
