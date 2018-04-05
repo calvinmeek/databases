@@ -36,7 +36,7 @@
 
 
 
-	$restaraunt = pg_query($conn, "CREATE TABLE IF NOT EXISTS restaraunt(restarauntID INT PRIMARY KEY, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, url VARCHAR(255) NOT NULL)");
+	$restaraunt = pg_query($conn, "CREATE TABLE IF NOT EXISTS restaraunt(restarauntID SERIAL PRIMARY KEY, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, url VARCHAR(255) NOT NULL)");
 
 	// if (!$restaraunt) {
 	//   echo "Creating restaraunt is not working. \n";
@@ -99,7 +99,7 @@
 
 	// ############################################################# POPULATING TABLES #############################################################
 
-
+	// $$$$$$$$$$$$$$$$$$$$$$ ADDING RATERS $$$$$$$$$$$$$$$$$$$$$$
 
 	$rater0 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('cmeek070@email.ca','Calvin','05-06-99','Blog',5)");
 	$rater1 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('aabbb@email.ca','Alvin','05-07-17','Online',3)");
@@ -117,6 +117,7 @@
 	$rater13 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('gamerguy1@email.ca','David','05-30-12','Critic',4)");
 	$rater14 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('biker1234578@email.ca','Jake','11-12-23','Online',5)");
 	
+	// $$$$$$$$$$$$$$$$$$$$$$ ADDING RESTRAUNTS $$$$$$$$$$$$$$$$$$$$$$
 
 
 
@@ -129,6 +130,7 @@
 
 		echo '<table>
         <tr>
+         <td>ID</td>
          <td>Email</td>
          <td>Name</td>
         </tr>';
@@ -136,6 +138,7 @@
 		foreach($fetch as $array)
 		{
 		    echo '<tr>
+		    		<td>'. $array['id'].'</td>
 		            <td>'. $array['email'].'</td>
 		            <td>'. $array['name'].'</td>
 		          </tr>';
