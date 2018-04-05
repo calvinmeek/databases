@@ -13,9 +13,11 @@
 
 	if (!$conn) {
 	  echo "NOT_CONNECTED\n";
+	  echo "<br />\n";
 	  exit;
 	} else {
 	    echo "CONNECTED\n";
+	    echo "<br />\n";
 	}
 
 
@@ -88,10 +90,12 @@
 
 	if (!$ratingItem && !$menuItem && !$location && !$rating && !$restaraunt && !$rater) {
 	  echo "TABLE_GENERATION_FAILED\n";
+	  echo "<br />\n";
 	  exit;
 	}
 	else{
 	  echo "TABLE_ GENERATION_SUCCESSFUL\n";
+	  echo "<br />\n";
 	}
 
 
@@ -145,12 +149,9 @@
 		}
 		echo '</table>';
 
-	  // echo "$row[0] $row[1] $row[2] $row[3] $row[4] $row[5]";
-	  // echo "$result";
-
-	  echo "<br />\n";
+	  	echo "<br />\n";
 	} else {
-	  echo "No records in food";
+	  echo "NO RECORDS FOUND";
 	}
 
 	// if (!pg_num_rows($result)) {
