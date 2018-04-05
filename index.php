@@ -465,7 +465,7 @@
 		{
 		    echo '<tr>
 		    		<td>'. $array['name'].'</td>
-		    		<td>'. $array['join_date'].'</td>
+		    		<td>'. $array['rating_date'].'</td>
 		          </tr>';
 		}
 		echo '</table>';
