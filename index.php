@@ -83,6 +83,34 @@
 	$rater12 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('baseball123@email.ca','Ryan','10-20-30','Critic',4)");
 	$rater13 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('gamerguy1@email.ca','David','05-30-12','Critic',4)");
 	$rater14 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('biker1234578@email.ca','Jake','11-12-23','Online',5)");
+
+				$result = pg_query($conn, "SELECT * FROM rater");
+
+				print "<pre>\n";
+
+				if ($fetch = pg_fetch_all($result)) {
+
+					echo '<table>
+			        <tr>
+			         <td>ID</td>
+			         <td>Email</td>
+			         <td>Name</td>
+			        </tr>';
+
+					foreach($fetch as $array)
+					{
+					    echo '<tr>
+					    		<td>'. $array['id'].'</td>
+					            <td>'. $array['email'].'</td>
+					            <td>'. $array['name'].'</td>
+					          </tr>';
+					}
+					echo '</table>';
+
+				  	echo "<br />\n";
+				} else {
+				  echo "NO RECORDS FOUND";
+				}
 	
 
 	// $$$$$$$$$$$$$$$$$$$$$$ ADDING RESTAURANTS $$$$$$$$$$$$$$$$$$$$$$
@@ -100,6 +128,36 @@
 	$restaurant10 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Ballin Burgers','American','www.ballinburgers.com')");
 	$restaurant11 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('French Cuisine','French','www.fc.com')");
 
+				$result = pg_query($conn, "SELECT * FROM restaurant");
+
+				print "<pre>\n";
+
+				if ($fetch = pg_fetch_all($result)) {
+
+					echo '<table>
+			        <tr>
+			         <td>ID</td>
+			         <td>Name</td>
+			         <td>Type</td>
+			         <td>URL</td>
+			        </tr>';
+
+					foreach($fetch as $array)
+					{
+					    echo '<tr>
+					    		<td>'. $array['restaurantid'].'</td>
+					            <td>'. $array['name'].'</td>
+					            <td>'. $array['type'].'</td>
+					            <td>'. $array['url'].'</td>
+					          </tr>';
+					}
+					echo '</table>';
+
+				  	echo "<br />\n";
+				} else {
+				  echo "NO RECORDS FOUND";
+				}
+
 	// $$$$$$$$$$$$$$$$$$$$$$ ADDING MENU ITEMS $$$$$$$$$$$$$$$$$$$$$$
 
 	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Cheese Pizza','F','Main','',9.99,1)");
@@ -110,104 +168,35 @@
 
 
 
+				$result = pg_query($conn, "SELECT * FROM menuItem");
 
-	
-	// $result = pg_query($conn, "SELECT * FROM rater");
+				print "<pre>\n";
 
-	// print "<pre>\n";
+				if ($fetch = pg_fetch_all($result)) {
 
-	// if ($fetch = pg_fetch_all($result)) {
+					echo '<table>
+			        <tr>
+			         <td>ID</td>
+			         <td>Name</td>
+			         <td>Type</td>
+			         <td>R_ID</td>
+			        </tr>';
 
-	// 	echo '<table>
- //        <tr>
- //         <td>ID</td>
- //         <td>Email</td>
- //         <td>Name</td>
- //        </tr>';
+					foreach($fetch as $array)
+					{
+					    echo '<tr>
+					    		<td>'. $array['itemid'].'</td>
+					            <td>'. $array['name'].'</td>
+					            <td>'. $array['type'].'</td>
+					            <td>'. $array['restaurantid'].'</td>
+					          </tr>';
+					}
+					echo '</table>';
 
-	// 	foreach($fetch as $array)
-	// 	{
-	// 	    echo '<tr>
-	// 	    		<td>'. $array['id'].'</td>
-	// 	            <td>'. $array['email'].'</td>
-	// 	            <td>'. $array['name'].'</td>
-	// 	          </tr>';
-	// 	}
-	// 	echo '</table>';
-
-	//   	echo "<br />\n";
-	// } else {
-	//   echo "NO RECORDS FOUND";
-	// }
-
-
-
-
-
-
-	$result = pg_query($conn, "SELECT * FROM restaurant");
-
-	print "<pre>\n";
-
-	if ($fetch = pg_fetch_all($result)) {
-
-		echo '<table>
-        <tr>
-         <td>ID</td>
-         <td>Name</td>
-         <td>Type</td>
-         <td>URL</td>
-        </tr>';
-
-		foreach($fetch as $array)
-		{
-		    echo '<tr>
-		    		<td>'. $array['restaurantid'].'</td>
-		            <td>'. $array['name'].'</td>
-		            <td>'. $array['type'].'</td>
-		            <td>'. $array['url'].'</td>
-		          </tr>';
-		}
-		echo '</table>';
-
-	  	echo "<br />\n";
-	} else {
-	  echo "NO RECORDS FOUND";
-	}
-
-
-
-
-
-	$result = pg_query($conn, "SELECT * FROM menuItem");
-
-	print "<pre>\n";
-
-	if ($fetch = pg_fetch_all($result)) {
-
-		echo '<table>
-        <tr>
-         <td>ID</td>
-         <td>Name</td>
-         <td>Type</td>
-         <td>R_ID</td>
-        </tr>';
-
-		foreach($fetch as $array)
-		{
-		    echo '<tr>
-		    		<td>'. $array['itemid'].'</td>
-		            <td>'. $array['name'].'</td>
-		            <td>'. $array['type'].'</td>
-		            <td>'. $array['restaurantid'].'</td>
-		          </tr>';
-		}
-		echo '</table>';
-
-	  	echo "<br />\n";
-	} else {
-	  echo "NO RECORDS FOUND";
-	}
+				  	echo "<br />\n";
+				} else {
+				  echo "NO RECORDS FOUND";
+				}
 
 
 
