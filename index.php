@@ -35,11 +35,11 @@
 
 
 
-	$rating = pg_query($conn, "CREATE TABLE IF NOT EXISTS rating(id INT REFERENCES rater(id), rating_date DATE PRIMARY KEY, price INT, food INT, 			mood INT, commments VARCHAR(255), restaurantID INT REFERENCES restaurant(restaurantID))");
+	$rating = pg_query($conn, "CREATE TABLE IF NOT EXISTS rating(id INT REFERENCES rater(id), rating_date VARCHAR(10) PRIMARY KEY, price INT, food INT, 			mood INT, commments VARCHAR(255), restaurantID INT REFERENCES restaurant(restaurantID))");
 
 
 
-	$location = pg_query($conn, "CREATE TABLE IF NOT EXISTS location(locationID SERIAL PRIMARY KEY, first_open_date DATE NOT NULL, manager_name VARCHAR(25) NOT NULL,	phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restaurantID INT REFERENCES restaurant(restaurantID))");
+	$location = pg_query($conn, "CREATE TABLE IF NOT EXISTS location(locationID SERIAL PRIMARY KEY, first_open_date VARCHAR(25) NOT NULL, manager_name VARCHAR(25) NOT NULL,	phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restaurantID INT REFERENCES restaurant(restaurantID))");
 
 
 
@@ -251,7 +251,7 @@
 
 	// $$$$$$$$$$$$$$$$$$$$$$ ADDING RATINGS $$$$$$$$$$$$$$$$$$$$$$
 
-	$rating1 = pg_query($conn, "INSERT INTO rating(id,price,food,mood,commments,restaurantID) VALUES (1,4,3,5,'',1)");
+	$rating1 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,commments,restaurantID) VALUES (1,'04-06-18',4,3,5,'',1)");
 
 
 				// %%%%%%%%%%%%%%%%% PRINT RATINGS TABLE %%%%%%%%%%%%%%%%%
@@ -266,6 +266,7 @@
 					echo '<table>
 			        <tr>
 			         <td>ID</td>
+			         <td>Date</td>
 			         <td>Price</td>
 			         <td>Food</td>
 			         <td>Mood</td>
@@ -276,6 +277,7 @@
 					{
 					    echo '<tr>
 					    		<td>'. $array['id'].'</td>
+					    		<td>'. $array['rating_date'].'</td>
 					            <td>'. $array['price'].'</td>
 					            <td>'. $array['food'].'</td>
 					            <td>'. $array['mood'].'</td>
