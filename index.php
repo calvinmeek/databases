@@ -43,7 +43,7 @@
 
 
 
-	$menuItem = pg_query($conn, "CREATE TABLE IF NOT EXISTS menuItem(itemID INT PRIMARY KEY NOT NULL, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, category VARCHAR(25) NOT NULL, description VARCHAR(255) NOT NULL, price INT NOT NULL, restaurantID INT REFERENCES restaurant(restaurantID))");
+	$menuItem = pg_query($conn, "CREATE TABLE IF NOT EXISTS menuItem(itemID SERIAL PRIMARY KEY, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, category VARCHAR(25) NOT NULL, description VARCHAR(255), price INT NOT NULL, restaurantID INT REFERENCES restaurant(restaurantID))");
 
 
 
@@ -85,7 +85,7 @@
 	$rater14 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('biker1234578@email.ca','Jake','11-12-23','Online',5)");
 	
 
-	// $$$$$$$$$$$$$$$$$$$$$$ ADDING restaurantS $$$$$$$$$$$$$$$$$$$$$$
+	// $$$$$$$$$$$$$$$$$$$$$$ ADDING RESTAURANTS $$$$$$$$$$$$$$$$$$$$$$
 
 	$restaurant0 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Best Food Ever','American','www.bestfood.com')");
 	$restaurant1 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Pizza Lovers','American','www.pizzalovers.com')");
@@ -100,7 +100,9 @@
 	$restaurant10 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Ballin Burgers','American','www.ballinburgers.com')");
 	$restaurant11 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('French Cuisine','French','www.fc.com')");
 
+	// $$$$$$$$$$$$$$$$$$$$$$ ADDING MENU ITEMS $$$$$$$$$$$$$$$$$$$$$$
 
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Cheese Pizza','F','Main','',9.99,1)");
 
 
 
@@ -164,6 +166,40 @@
 		            <td>'. $array['name'].'</td>
 		            <td>'. $array['type'].'</td>
 		            <td>'. $array['url'].'</td>
+		          </tr>';
+		}
+		echo '</table>';
+
+	  	echo "<br />\n";
+	} else {
+	  echo "NO RECORDS FOUND";
+	}
+
+
+
+
+
+	$result = pg_query($conn, "SELECT * FROM menuItem");
+
+	print "<pre>\n";
+
+	if ($fetch = pg_fetch_all($result)) {
+
+		echo '<table>
+        <tr>
+         <td>ID</td>
+         <td>Name</td>
+         <td>Type</td>
+         <td>R_ID</td>
+        </tr>';
+
+		foreach($fetch as $array)
+		{
+		    echo '<tr>
+		    		<td>'. $array['itemid'].'</td>
+		            <td>'. $array['name'].'</td>
+		            <td>'. $array['type'].'</td>
+		            <td>'. $array['restaurantid'].'</td>
 		          </tr>';
 		}
 		echo '</table>';
