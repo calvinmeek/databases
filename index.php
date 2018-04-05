@@ -96,7 +96,7 @@
 	$restraunt6 = pg_query($conn, "INSERT INTO restaraunt(name,type,url) VALUES ('Taste of Asia','Asian','www.toa.com')");
 	$restraunt7 = pg_query($conn, "INSERT INTO restaraunt(name,type,url) VALUES ('Steak House','American','www.steakhouse.com')");
 	$restraunt8 = pg_query($conn, "INSERT INTO restaraunt(name,type,url) VALUES ('Shawarma Palooza','Middle Eastern','www.spalooza.com')");
-	$restraunt9 = pg_query($conn, "INSERT INTO restaraunt(name,type,url) VALUES ('Eat 'n Play,'American','www.eatnplay.com')");
+	$restraunt9 = pg_query($conn, "INSERT INTO restaraunt(name,type,url) VALUES ('Eat n Play,'American','www.eatnplay.com')");
 	$restraunt10 = pg_query($conn, "INSERT INTO restaraunt(name,type,url) VALUES ('Ballin Burgers','American','www.ballinburgers.com')");
 	$restraunt11 = pg_query($conn, "INSERT INTO restaraunt(name,type,url) VALUES ('French Cuisine','French','www.fc.com')");
 
