@@ -423,37 +423,37 @@
 
 
 
-	$queryN = pg_query($conn, "SELECT name, email FROM rater , rating WHERE rater.price + rater.mood + rater.food < )");
+	// $queryN = pg_query($conn, "SELECT name, email FROM rater , rating WHERE rater.price + rater.mood + rater.food < )");
+
+	// print "<pre>\n";
+
+	// if ($fetch = pg_fetch_all($queryK)) {
+
+	// 	echo '<table>
+ //        <tr>
+ //         <td>NAME</td>
+ //         <td>JOIN_DATE</td>
+ //        </tr>';
+
+	// 	foreach($fetch as $array)
+	// 	{
+	// 	    echo '<tr>
+	// 	    		<td>'. $array['name'].'</td>
+	// 	    		<td>'. $array['join_date'].'</td>
+	// 	          </tr>';
+	// 	}
+	// 	echo '</table>';
+
+	//   	echo "<br />\n";
+	// } else {
+	//   echo "NO RECORDS FOUND";
+	// }
+
+	$queryG = pg_query($conn, "SELECT * FROM restaurant LEFT JOIN rating ON restaurant.restaurantID = rating.restaurantID WHERE rating.rating_date NOT LIKE '01-%-15'");
 
 	print "<pre>\n";
 
-	if ($fetch = pg_fetch_all($queryK)) {
-
-		echo '<table>
-        <tr>
-         <td>NAME</td>
-         <td>JOIN_DATE</td>
-        </tr>';
-
-		foreach($fetch as $array)
-		{
-		    echo '<tr>
-		    		<td>'. $array['name'].'</td>
-		    		<td>'. $array['join_date'].'</td>
-		          </tr>';
-		}
-		echo '</table>';
-
-	  	echo "<br />\n";
-	} else {
-	  echo "NO RECORDS FOUND";
-	}
-
-	$queryG = pg_query($conn, "SELECT * FROM restaurant LEFT JOIN rating ON restaurant.id = rating.restaurantID WHERE rating.rating_date NOT LIKE '01-%-15'");
-
-	print "<pre>\n";
-
-	if ($fetch = pg_fetch_all($queryK)) {
+	if ($fetch = pg_fetch_all($queryG)) {
 
 		echo '<table>
         <tr>
