@@ -31,26 +31,26 @@
 
 
 
-	$restaraunt = pg_query($conn, "CREATE TABLE IF NOT EXISTS restaraunt(restarauntID SERIAL PRIMARY KEY, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, url VARCHAR(255) NOT NULL)");
+	$restaurant = pg_query($conn, "CREATE TABLE IF NOT EXISTS restaurant(restaurantID SERIAL PRIMARY KEY, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, url VARCHAR(255) NOT NULL)");
 
 
 
-	$rating = pg_query($conn, "CREATE TABLE IF NOT EXISTS rating(id INT REFERENCES rater(id), rating_date DATE PRIMARY KEY, price INT, food VARCHAR(25), 			mood VARCHAR(25), commments VARCHAR(255), restarauntID INT REFERENCES restaraunt(restarauntID))");
+	$rating = pg_query($conn, "CREATE TABLE IF NOT EXISTS rating(id INT REFERENCES rater(id), rating_date DATE PRIMARY KEY, price INT, food VARCHAR(25), 			mood VARCHAR(25), commments VARCHAR(255), restaurantID INT REFERENCES restaurant(restaurantID))");
 
 
 
-	$location = pg_query($conn, "CREATE TABLE IF NOT EXISTS location(locationID SERIAL PRIMARY KEY, first_open_date DATE NOT NULL, manager_name VARCHAR(25) NOT NULL,	phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restarauntID INT REFERENCES restaraunt(restarauntID))");
+	$location = pg_query($conn, "CREATE TABLE IF NOT EXISTS location(locationID SERIAL PRIMARY KEY, first_open_date DATE NOT NULL, manager_name VARCHAR(25) NOT NULL,	phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restaurantID INT REFERENCES restaurant(restaurantID))");
 
 
 
-	$menuItem = pg_query($conn, "CREATE TABLE IF NOT EXISTS menuItem(itemID INT PRIMARY KEY NOT NULL, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, category VARCHAR(25) NOT NULL, description VARCHAR(255) NOT NULL, price INT NOT NULL, restarauntID INT REFERENCES restaraunt(restarauntID))");
+	$menuItem = pg_query($conn, "CREATE TABLE IF NOT EXISTS menuItem(itemID INT PRIMARY KEY NOT NULL, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, category VARCHAR(25) NOT NULL, description VARCHAR(255) NOT NULL, price INT NOT NULL, restaurantID INT REFERENCES restaurant(restaurantID))");
 
 
 
 	$ratingItem = pg_query($conn, "CREATE TABLE IF NOT EXISTS ratingItem(id INT REFERENCES rater(id), date_stamp VARCHAR(25) NOT NULL, itemID INT REFERENCES menuItem(itemID) NOT NULL, rating INT NOT NULL, comment VARCHAR(255), PRIMARY KEY(id,date_stamp,itemID))");
 
 
-	if (!$ratingItem && !$menuItem && !$location && !$rating && !$restaraunt && !$rater) {
+	if (!$ratingItem && !$menuItem && !$location && !$rating && !$restaurant && !$rater) {
 	  echo "TABLE_GENERATION_FAILED\n";
 	  echo "<br />\n";
 	  exit;
@@ -87,18 +87,18 @@
 
 	// $$$$$$$$$$$$$$$$$$$$$$ ADDING RESTRAUNTS $$$$$$$$$$$$$$$$$$$$$$
 
-	$restraunt0 = pg_query($conn, "INSERT INTO restaraunt(name,type,url) VALUES ('Best Food Ever','American','www.bestfood.com')");
-	$restraunt1 = pg_query($conn, "INSERT INTO restaraunt(name,type,url) VALUES ('Pizza Lovers','American','www.pizzalovers.com')");
-	$restraunt2 = pg_query($conn, "INSERT INTO restaraunt(name,type,url) VALUES ('Sushi Palace','Sushi','www.sushipalace.com')");
-	$restraunt3 = pg_query($conn, "INSERT INTO restaraunt(name,type,url) VALUES ('Italian Pasta','Italian','www.ipasta.com')");
-	$restraunt4 = pg_query($conn, "INSERT INTO restaraunt(name,type,url) VALUES ('Burger Master','American','www.burgermaster.com')");
-	$restraunt5 = pg_query($conn, "INSERT INTO restaraunt(name,type,url) VALUES ('Icecream Delight','Dessert','www.id.com')");
-	$restraunt6 = pg_query($conn, "INSERT INTO restaraunt(name,type,url) VALUES ('Taste of Asia','Asian','www.toa.com')");
-	$restraunt7 = pg_query($conn, "INSERT INTO restaraunt(name,type,url) VALUES ('Steak House','American','www.steakhouse.com')");
-	$restraunt8 = pg_query($conn, "INSERT INTO restaraunt(name,type,url) VALUES ('Shawarma Palooza','Middle Eastern','www.spalooza.com')");
-	$restraunt9 = pg_query($conn, "INSERT INTO restaraunt(name,type,url) VALUES ('Eat n Play','American','www.eatnplay.com')");
-	$restraunt10 = pg_query($conn, "INSERT INTO restaraunt(name,type,url) VALUES ('Ballin Burgers','American','www.ballinburgers.com')");
-	$restraunt11 = pg_query($conn, "INSERT INTO restaraunt(name,type,url) VALUES ('French Cuisine','French','www.fc.com')");
+	$restraunt0 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Best Food Ever','American','www.bestfood.com')");
+	$restraunt1 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Pizza Lovers','American','www.pizzalovers.com')");
+	$restraunt2 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Sushi Palace','Sushi','www.sushipalace.com')");
+	$restraunt3 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Italian Pasta','Italian','www.ipasta.com')");
+	$restraunt4 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Burger Master','American','www.burgermaster.com')");
+	$restraunt5 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Icecream Delight','Dessert','www.id.com')");
+	$restraunt6 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Taste of Asia','Asian','www.toa.com')");
+	$restraunt7 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Steak House','American','www.steakhouse.com')");
+	$restraunt8 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Shawarma Palooza','Middle Eastern','www.spalooza.com')");
+	$restraunt9 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Eat n Play','American','www.eatnplay.com')");
+	$restraunt10 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Ballin Burgers','American','www.ballinburgers.com')");
+	$restraunt11 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('French Cuisine','French','www.fc.com')");
 
 
 
@@ -143,7 +143,7 @@
 
 
 
-	$result = pg_query($conn, "SELECT * FROM restaraunt");
+	$result = pg_query($conn, "SELECT * FROM restaurant");
 
 	print "<pre>\n";
 
@@ -160,7 +160,7 @@
 		foreach($fetch as $array)
 		{
 		    echo '<tr>
-		    		<td>'. $array['restarauntTD'].'</td>
+		    		<td>'. $array['restaurantTD'].'</td>
 		            <td>'. $array['name'].'</td>
 		            <td>'. $array['type'].'</td>
 		            <td>'. $array['url'].'</td>
