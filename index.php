@@ -393,7 +393,7 @@
 				  echo "NO RECORDS FOUND";
 				}
 
-	$queryK = pg_query($conn, "SELECT name, join_date FROM rater WHERE rater.id = rating.id AND rating.food = MAX(rating.food) AND rating.mood = MAX(rating.food))");
+	$queryK = pg_query($conn, "SELECT name, join_date FROM rater r INNER JOIN (SELECT MAX(food) AS Max_Food, MAX(mood) AS Max_Mood FROM rating) rtng ON r.id = rtng.id AND rtng.food = Max_Food AND rtng.mood = Max_Mood");
 
 	print "<pre>\n";
 
