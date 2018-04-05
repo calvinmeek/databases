@@ -84,6 +84,9 @@
 	$rater13 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('gamerguy1@email.ca','David','05-30-12','Critic',4)");
 	$rater14 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('biker1234578@email.ca','Jake','11-12-23','Online',5)");
 
+
+				// %%%%%%%%%%%%%%%%% PRINT RATER TABLE %%%%%%%%%%%%%%%%%
+
 				$result = pg_query($conn, "SELECT * FROM rater");
 
 				print "<pre>\n";
@@ -128,6 +131,11 @@
 	$restaurant10 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Ballin Burgers','American','www.ballinburgers.com')");
 	$restaurant11 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('French Cuisine','French','www.fc.com')");
 
+				
+
+
+				// %%%%%%%%%%%%%%%%% PRINT RESTAURANT TABLE %%%%%%%%%%%%%%%%%
+
 				$result = pg_query($conn, "SELECT * FROM restaurant");
 
 				print "<pre>\n";
@@ -161,11 +169,50 @@
 	// $$$$$$$$$$$$$$$$$$$$$$ ADDING MENU ITEMS $$$$$$$$$$$$$$$$$$$$$$
 
 	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Cheese Pizza','F','Main','',9.99,1)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Milk Shake','D','Drink','',7.99,1)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Ceaser Salad','F','Starter','',4.99,1)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Cheese Pizza','F','Main','',5.99,2)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Meat Lovers Pizza','F','Main','',5.99,2)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Veggie Pizza','F','Main','',5.99,2)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Pepperoni Pizza','F','Main','',5.99,2)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('BBQ Chicken Pizza','F','Main','',5.99,2)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Hawian Pizza','F','Main','',5.99,2)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Margherita Pizza','F','Main','',5.99,2)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('5pc Sushi','F','Main','',5.99,3)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('10pc Sushi','F','Main','',10.99,3)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('15pc Sushi','F','Main','',15.99,3)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('30pc Sushi','F','Main','',20.99,3)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Pop','D','Drink','',2.99,3)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Water','D','Drink','',0,3)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Spaghetti','F','Main','',12.99,4)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Spring Salad','F','Starter','',3.99,4)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Lasagne','F','Main','',11.99,4)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Chocolate Cake','F','Desert','',5.99,4)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Apple Pie','F','Desert','',4.99,4)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Build a Burger','F','Main','',7.99,5)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Sundae','F','Desert','',2.99,6)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Banana Split','F','Desert','',4.99,6)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Icecream Cone','F','Desert','',1.99,6)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Noodle Bowl','F','Main','',7.99,7)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('8oz Steak','F','Main','',19.99,8)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Shrimp','F','Starter','',7.99,8)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Baked Potato','F','Side','',5.99,8)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Chocolate Fondue','F','Desert','',13.99,8)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Shawarma','F','Main','',7.99,9)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Grilled Cheese','F','Main','',4.99,10)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Kids Pizza','F','Main','',5.99,10)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Build a Burger','F','Main','',8.99,11)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Poutine','F','Main','',7.99,12)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('French Bread','F','Starter','',1.99,12)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('French Pastries','F','Desert','',4.99,12)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Hot Chocolate','D','Drink','',2.99,12)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('French Fries','F','Starter','',2.99,12)");
+	$menuItem0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('Tea','D','Drink','',2.99,12)");
 
 
 
 
-
+				// %%%%%%%%%%%%%%%%% PRINT MENU ITEM TABLE %%%%%%%%%%%%%%%%%
 
 
 				$result = pg_query($conn, "SELECT * FROM menuItem");
@@ -179,6 +226,7 @@
 			         <td>ID</td>
 			         <td>Name</td>
 			         <td>Type</td>
+			         <td>Price</td>
 			         <td>R_ID</td>
 			        </tr>';
 
@@ -188,6 +236,7 @@
 					    		<td>'. $array['itemid'].'</td>
 					            <td>'. $array['name'].'</td>
 					            <td>'. $array['type'].'</td>
+					            <td>'. $array['price'].'</td>
 					            <td>'. $array['restaurantid'].'</td>
 					          </tr>';
 					}
