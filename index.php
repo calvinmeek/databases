@@ -710,7 +710,7 @@
 	// %%%%%%%%%%%%%%%%% QUERY F %%%%%%%%%%%%%%%%%
 
 
-	$queryF = pg_query($conn, "SELECT R.name, Rtr.usrName, Rt.price, Rt.food, Rt.mood FROM restaurant R, rating Rt, rater Rtr WHERE Rt.restaurantID = R.restaurantID AND Rt.id = Rtr.id GROUP BY R.name, Rtr.name,Rt.price,Rt.food,Rt.mood");
+	$queryF = pg_query($conn, "SELECT R.name, Rtr.usrName, Rt.price, Rt.food, Rt.mood FROM restaurant R, rating Rt, rater Rtr WHERE Rt.restaurantID = R.restaurantID AND Rt.id = Rtr.id GROUP BY R.name, Rtr.usrName,Rt.price,Rt.food,Rt.mood");
 
 
 	print "<pre>\n";
