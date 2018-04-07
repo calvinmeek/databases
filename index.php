@@ -329,7 +329,7 @@
 						    echo '<tr>
 						    		<td>'. $array['id'].'</td>
 						            <td>'. $array['email'].'</td>
-						            <td>'. $array['usrName'].'</td>
+						            <td>'. $array['usrname'].'</td>
 						          </tr>';
 						}
 						echo '</table>';
@@ -732,7 +732,7 @@
 		{
 		    echo '<tr>
 		    		<td>'. $array['name'].'</td>
-		    		<td>'. $array['usrName'].'</td>
+		    		<td>'. $array['usrname'].'</td>
 		            <td>'. $array['price'].'</td>
 		            <td>'. $array['food'].'</td>
 		            <td>'. $array['mood'].'</td>
