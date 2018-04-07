@@ -430,6 +430,7 @@
 				         <td>ID</td>
 				         <td>Name</td>
 				         <td>Type</td>
+				         <td>Category</td>
 				         <td>Price</td>
 				         <td>R_ID</td>
 				        </tr>';
@@ -440,6 +441,7 @@
 						    		<td>'. $array['itemid'].'</td>
 						            <td>'. $array['itemname'].'</td>
 						            <td>'. $array['type'].'</td>
+						            <td>'. $array['category'].'</td>
 						            <td>'. $array['price'].'</td>
 						            <td>'. $array['restaurantid'].'</td>
 						          </tr>';
@@ -660,6 +662,49 @@
 	  echo "NO RECORDS FOUND";
 	}
 
+
+
+
+	// %%%%%%%%%%%%%%%%% QUERY E %%%%%%%%%%%%%%%%%
+
+
+	$queryE = pg_query($conn, "SELECT price FROM menuItem , (SELECT )WHERE ");
+
+
+	print "<pre>\n";
+	print "QUERY E\n\n";
+
+	if ($fetch = pg_fetch_all($queryE)) {
+
+		echo '<table>
+        <tr>
+         <td>I_Name</td>
+         <td>Price</td>
+         <td>M_Name</td>
+         <td>Open</td>
+         <td>Close</td>
+         <td>url</td>
+
+        </tr>';
+
+		foreach($fetch as $array)
+		{
+		    echo '<tr>
+		    		<td>'. $array['itemname'].'</td>
+		    		<td>'. $array['price'].'</td>
+		            <td>'. $array['manager_name'].'</td>
+		            <td>'. $array['open_hour'].'</td>
+		            <td>'. $array['close_hour'].'</td>
+		            <td>'. $array['url'].'</td>
+
+		          </tr>';
+		}
+		echo '</table>';
+
+	  	echo "<br />\n";
+	} else {
+	  echo "NO RECORDS FOUND";
+	}
 
 
 
