@@ -313,6 +313,7 @@
 					$result = pg_query($conn, "SELECT * FROM rater");
 
 					print "<pre>\n";
+					print "RATER TABLE\n\n";
 
 					if ($fetch = pg_fetch_all($result)) {
 
@@ -344,6 +345,7 @@
 					$result = pg_query($conn, "SELECT * FROM restaurant");
 
 					print "<pre>\n";
+					print "RESTAURANT TABLE\n\n";
 
 					if ($fetch = pg_fetch_all($result)) {
 
@@ -376,6 +378,7 @@
 					$result = pg_query($conn, "SELECT * FROM location");
 
 					print "<pre>\n";
+					print "RESTAURANT LOCATION TABLE\n\n";
 
 					if ($fetch = pg_fetch_all($result)) {
 
@@ -418,6 +421,7 @@
 					$result = pg_query($conn, "SELECT * FROM menuItem");
 
 					print "<pre>\n";
+					print "MENU ITEM TABLE\n\n";
 
 					if ($fetch = pg_fetch_all($result)) {
 
@@ -454,6 +458,7 @@
 					$result = pg_query($conn, "SELECT * FROM rating");
 
 					print "<pre>\n";
+					print "RATINGS TABLE\n\n";
 
 					if ($fetch = pg_fetch_all($result)) {
 
