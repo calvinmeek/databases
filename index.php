@@ -395,8 +395,9 @@
 						{
 						    echo '<tr>
 						    		<td>'. $array['locationid'].'</td>
+						    		<td>'. $array['first_open_date'].'</td>
 						            <td>'. $array['manager_name'].'</td>
-						            <td>'. $array['phoneNumber'].'</td>
+						            <td>'. $array['phonenumber'].'</td>
 						            <td>'. $array['address'].'</td>
 						            <td>'. $array['open_hour'].'</td>
 						            <td>'. $array['close_hour'].'</td>
