@@ -511,6 +511,13 @@
          <td>Name</td>
          <td>Type</td>
          <td>URL</td>
+         <td>R_ID</td>
+         <td>OpenDate</td>
+         <td>M_name</td>
+         <td>phone #</td>
+         <td>address</td>
+         <td>open</td>
+         <td>close</td>
         </tr>';
 
 		foreach($fetch as $array)
