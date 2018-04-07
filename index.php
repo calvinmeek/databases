@@ -622,7 +622,7 @@
 
 	$testString4 = "Sushi Palace";
 
-	$queryD = pg_query($conn, "SELECT R.name, L.manager_name, L.open_hour, L.close_hour, R.url, M.price  FROM restaurant R, location L INNER JOIN (SELECT itemID, MAX(price) price FROM menuItem GROUP BY itemID) M ON R.name = '$testString4' AND R.restaurantID = L.restaurantID AND R.restaurantID = M.restaurantID");
+	$queryD = pg_query($conn, "SELECT name, manager_name, open_hour, close_hour, url, price  FROM restaurant, location INNER JOIN (SELECT itemID, MAX(price) FROM menuItem GROUP BY itemID) M ON restaurant.name = '$testString4' AND restaurant.restaurantID = location.restaurantID AND restaurant.restaurantID = M.restaurantID");
 
 
 	print "<pre>\n";
