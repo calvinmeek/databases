@@ -67,7 +67,7 @@
 
 	$check = pg_query($conn, "SELECT * FROM rater");
 
-	if (!$fetch = pg_fetch_all($rater)) {
+	if (!$fetch = pg_fetch_all($check)) {
 
 		
 
@@ -90,35 +90,7 @@
 		$rater14 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('biker1234578@email.ca','Jake','11-12-23','Online',5)");
 
 
-					// %%%%%%%%%%%%%%%%% PRINT RATER TABLE %%%%%%%%%%%%%%%%%
-
-					$result = pg_query($conn, "SELECT * FROM rater");
-
-					print "<pre>\n";
-
-					if ($fetch = pg_fetch_all($result)) {
-
-						echo '<table>
-				        <tr>
-				         <td>ID</td>
-				         <td>Email</td>
-				         <td>Name</td>
-				        </tr>';
-
-						foreach($fetch as $array)
-						{
-						    echo '<tr>
-						    		<td>'. $array['id'].'</td>
-						            <td>'. $array['email'].'</td>
-						            <td>'. $array['name'].'</td>
-						          </tr>';
-						}
-						echo '</table>';
-
-					  	echo "<br />\n";
-					} else {
-					  echo "NO RECORDS FOUND";
-					}
+					
 		
 
 		// $$$$$$$$$$$$$$$$$$$$$$ ADDING RESTAURANTS $$$$$$$$$$$$$$$$$$$$$$
@@ -139,37 +111,7 @@
 					
 
 
-					// %%%%%%%%%%%%%%%%% PRINT RESTAURANT TABLE %%%%%%%%%%%%%%%%%
-
-					$result = pg_query($conn, "SELECT * FROM restaurant");
-
-					print "<pre>\n";
-
-					if ($fetch = pg_fetch_all($result)) {
-
-						echo '<table>
-				        <tr>
-				         <td>ID</td>
-				         <td>Name</td>
-				         <td>Type</td>
-				         <td>URL</td>
-				        </tr>';
-
-						foreach($fetch as $array)
-						{
-						    echo '<tr>
-						    		<td>'. $array['restaurantid'].'</td>
-						            <td>'. $array['name'].'</td>
-						            <td>'. $array['type'].'</td>
-						            <td>'. $array['url'].'</td>
-						          </tr>';
-						}
-						echo '</table>';
-
-					  	echo "<br />\n";
-					} else {
-					  echo "NO RECORDS FOUND";
-					}
+					
 
 		// $$$$$$$$$$$$$$$$$$$$$$ ADDING MENU ITEMS $$$$$$$$$$$$$$$$$$$$$$
 
@@ -217,40 +159,7 @@
 
 
 
-					// %%%%%%%%%%%%%%%%% PRINT MENU ITEM TABLE %%%%%%%%%%%%%%%%%
-
-
-					$result = pg_query($conn, "SELECT * FROM menuItem");
-
-					print "<pre>\n";
-
-					if ($fetch = pg_fetch_all($result)) {
-
-						echo '<table>
-				        <tr>
-				         <td>ID</td>
-				         <td>Name</td>
-				         <td>Type</td>
-				         <td>Price</td>
-				         <td>R_ID</td>
-				        </tr>';
-
-						foreach($fetch as $array)
-						{
-						    echo '<tr>
-						    		<td>'. $array['itemid'].'</td>
-						            <td>'. $array['name'].'</td>
-						            <td>'. $array['type'].'</td>
-						            <td>'. $array['price'].'</td>
-						            <td>'. $array['restaurantid'].'</td>
-						          </tr>';
-						}
-						echo '</table>';
-
-					  	echo "<br />\n";
-					} else {
-					  echo "NO RECORDS FOUND";
-					}
+					
 
 
 
@@ -361,7 +270,121 @@
 		$rating23 = pg_query($conn, "INSERT INTO rating(id,rating_date,price,food,mood,staff,commments,restaurantID) VALUES (4,'12-6-18',3,3,5,3,'',12)");
 
 
-					// %%%%%%%%%%%%%%%%% PRINT RATINGS TABLE %%%%%%%%%%%%%%%%%
+
+
+	  	echo "<br />\n";
+	} else {
+	  echo "DEFAULT TABLE INFO ALREADY GENERATED!";
+	}
+
+
+
+
+	// ############################################################# POPPULATING TABLES #############################################################
+
+
+
+	// %%%%%%%%%%%%%%%%% PRINT RATER TABLE %%%%%%%%%%%%%%%%%
+
+					$result = pg_query($conn, "SELECT * FROM rater");
+
+					print "<pre>\n";
+
+					if ($fetch = pg_fetch_all($result)) {
+
+						echo '<table>
+				        <tr>
+				         <td>ID</td>
+				         <td>Email</td>
+				         <td>Name</td>
+				        </tr>';
+
+						foreach($fetch as $array)
+						{
+						    echo '<tr>
+						    		<td>'. $array['id'].'</td>
+						            <td>'. $array['email'].'</td>
+						            <td>'. $array['name'].'</td>
+						          </tr>';
+						}
+						echo '</table>';
+
+					  	echo "<br />\n";
+					} else {
+					  echo "NO RECORDS FOUND";
+					}
+
+	
+	// %%%%%%%%%%%%%%%%% PRINT RESTAURANT TABLE %%%%%%%%%%%%%%%%%
+
+					$result = pg_query($conn, "SELECT * FROM restaurant");
+
+					print "<pre>\n";
+
+					if ($fetch = pg_fetch_all($result)) {
+
+						echo '<table>
+				        <tr>
+				         <td>ID</td>
+				         <td>Name</td>
+				         <td>Type</td>
+				         <td>URL</td>
+				        </tr>';
+
+						foreach($fetch as $array)
+						{
+						    echo '<tr>
+						    		<td>'. $array['restaurantid'].'</td>
+						            <td>'. $array['name'].'</td>
+						            <td>'. $array['type'].'</td>
+						            <td>'. $array['url'].'</td>
+						          </tr>';
+						}
+						echo '</table>';
+
+					  	echo "<br />\n";
+					} else {
+					  echo "NO RECORDS FOUND";
+					}
+
+
+	// %%%%%%%%%%%%%%%%% PRINT MENU ITEM TABLE %%%%%%%%%%%%%%%%%
+
+
+					$result = pg_query($conn, "SELECT * FROM menuItem");
+
+					print "<pre>\n";
+
+					if ($fetch = pg_fetch_all($result)) {
+
+						echo '<table>
+				        <tr>
+				         <td>ID</td>
+				         <td>Name</td>
+				         <td>Type</td>
+				         <td>Price</td>
+				         <td>R_ID</td>
+				        </tr>';
+
+						foreach($fetch as $array)
+						{
+						    echo '<tr>
+						    		<td>'. $array['itemid'].'</td>
+						            <td>'. $array['name'].'</td>
+						            <td>'. $array['type'].'</td>
+						            <td>'. $array['price'].'</td>
+						            <td>'. $array['restaurantid'].'</td>
+						          </tr>';
+						}
+						echo '</table>';
+
+					  	echo "<br />\n";
+					} else {
+					  echo "NO RECORDS FOUND";
+					}
+
+
+	// %%%%%%%%%%%%%%%%% PRINT RATINGS TABLE %%%%%%%%%%%%%%%%%
 
 
 					$result = pg_query($conn, "SELECT * FROM rating");
@@ -397,20 +420,6 @@
 					} else {
 					  echo "NO RECORDS FOUND";
 					}
-
-
-
-
-
-
-	  	echo "<br />\n";
-	} else {
-	  echo "DEFAULT TABLE INFO ALREADY GENERATED!";
-	}
-
-	
-
-
 
 
 	$testString = "Ballin Burgers";
