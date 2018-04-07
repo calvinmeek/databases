@@ -707,7 +707,46 @@
 	}
 
 
+	// %%%%%%%%%%%%%%%%% QUERY F %%%%%%%%%%%%%%%%%
 
+
+	$queryF = pg_query($conn, "SELECT R.name, R.restaurantID, Rtr.name, Rt.price, Rt.food, Rt.mood FROM restaurant R, rating Rt, rater Rtr WHERE Rt.restaurantID = R.restaurantID AND Rt.id = Rtr.id GROUP BY R.name, Rtr.name,Rt.price,Rt.food,Rt.mood");
+
+
+	print "<pre>\n";
+	print "QUERY F\n\n";
+
+	if ($fetch = pg_fetch_all($queryF)) {
+
+		echo '<table>
+        <tr>
+         <td>I_Name</td>
+         <td>Price</td>
+         <td>M_Name</td>
+         <td>Open</td>
+         <td>Close</td>
+         <td>url</td>
+
+        </tr>';
+
+		foreach($fetch as $array)
+		{
+		    echo '<tr>
+		    		<td>'. $array['itemname'].'</td>
+		    		<td>'. $array['price'].'</td>
+		            <td>'. $array['manager_name'].'</td>
+		            <td>'. $array['open_hour'].'</td>
+		            <td>'. $array['close_hour'].'</td>
+		            <td>'. $array['url'].'</td>
+
+		          </tr>';
+		}
+		echo '</table>';
+
+	  	echo "<br />\n";
+	} else {
+	  echo "NO RECORDS FOUND";
+	}
 
 
 
