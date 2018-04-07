@@ -622,7 +622,7 @@
 
 	$testString4 = "Sushi Palace";
 
-	$queryD = pg_query($conn, "SELECT R.restaurantID, name, manager_name, open_hour, close_hour, url, price FROM restaurant R, location L, menuItem M, (SELECT restaurantID, MAX(price) AS maxPrice FROM menuItem GROUP BY restaurantID) maxresults WHERE R.name = '$testString4' AND R.restaurantID = L.restaurantID AND R.restaurantID = maxresults.restaurantID" AND M.price = maxresults.maxPrice);
+	$queryD = pg_query($conn, "SELECT R.restaurantID, name, manager_name, open_hour, close_hour, url, price FROM restaurant R, location L, menuItem M, (SELECT restaurantID, MAX(price) AS maxPrice FROM menuItem GROUP BY restaurantID) maxresults WHERE R.name = '$testString4' AND R.restaurantID = L.restaurantID AND R.restaurantID = maxresults.restaurantID AND M.price = maxresults.maxPrice");
 
 
 	print "<pre>\n";
