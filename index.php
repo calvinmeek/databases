@@ -17,7 +17,7 @@
 	  exit;
 	} else {
 	    echo "CONNECTED\n";
-	    echo "<br />\n"
+	    echo "<br />\n";
 	}
 
 
