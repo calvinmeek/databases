@@ -39,7 +39,7 @@
 
 
 
-	$location = pg_query($conn, "CREATE TABLE IF NOT EXISTS location(locationID SERIAL PRIMARY KEY, first_open_date VARCHAR(25) NOT NULL, manager_name VARCHAR(25) NOT NULL,	phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restaurantID INT REFERENCES restaurant(restaurantID))");
+	$location = pg_query($conn, "CREATE TABLE IF NOT EXISTS location(locationID SERIAL PRIMARY KEY, first_open_date VARCHAR(25) NOT NULL, manager_name VARCHAR(25) NOT NULL, phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restaurantID INT REFERENCES restaurant(restaurantID))");
 
 
 
@@ -108,8 +108,32 @@
 		$restaurant10 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('Ballin Burgers','American','www.ballinburgers.com')");
 		$restaurant11 = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('French Cuisine','French','www.fc.com')");
 
-					
+		// $$$$$$$$$$$$$$$$$$$$$$ ADDING LOCATIONS $$$$$$$$$$$$$$$$$$$$$$
 
+		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
+			VALUES (9-17-16,'Jimi','129-345-8888','123 Road St',1000,2000,1)");		
+		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
+			VALUES (9-17-16,'Paul','399-345-2888','234 Road St',800,2100,2)");
+		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
+			VALUES (9-17-16,'Rob','234-345-5888','1333 Road St',830,2000,3)");
+		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
+			VALUES (9-17-16,'Sally','956-345-8888','133 Road St',900,2000,4)");
+		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
+			VALUES (9-17-16,'Wallace','349-345-8888','121 Road St',1100,1300,5)");
+		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
+			VALUES (9-17-16,'Shaggy','399-315-1188','1 Road St',900,1900,6)");
+		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
+			VALUES (9-17-16,'Steve','399-375-2888','3 Road St',800,2000,7)");
+		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
+			VALUES (9-17-16,'Fred','399-349-8888','1234 Road St',1000,2000,8)");
+		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
+			VALUES (9-17-16,'Franky','392-345-8888','123333 Road St',700,2000,9)");
+		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
+			VALUES (9-17-16,'Velma','391-345-8288','12322 Road St',500,1700,10)");
+		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
+			VALUES (9-17-16,'Pete','233-345-8118','123456 Road St',900,2000,11)");
+		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
+			VALUES (9-17-16,'Jeff','398-345-8833','1231 Road St',800,1200,12)");
 
 					
 
@@ -274,7 +298,7 @@
 
 	  	echo "<br />\n";
 	} else {
-	  echo "DEFAULT TABLE INFO ALREADY GENERATED!";
+	  echo "DEFAULT_TABLE_INFO_ALREADY_GENERATED!";
 	}
 
 
@@ -338,6 +362,45 @@
 						            <td>'. $array['name'].'</td>
 						            <td>'. $array['type'].'</td>
 						            <td>'. $array['url'].'</td>
+						          </tr>';
+						}
+						echo '</table>';
+
+					  	echo "<br />\n";
+					} else {
+					  echo "NO RECORDS FOUND";
+					}
+
+	// %%%%%%%%%%%%%%%%% PRINT RESTAURANT LOCATION TABLE %%%%%%%%%%%%%%%%%
+
+					$result = pg_query($conn, "SELECT * FROM location");
+
+					print "<pre>\n";
+
+					if ($fetch = pg_fetch_all($result)) {
+
+						echo '<table>
+				        <tr>
+				         <td>ID</td>
+				         <td>OpenDate</td>
+				         <td>M_name</td>
+				         <td>phone #</td>
+				         <td>address</td>
+				         <td>open</td>
+				         <td>close</td>
+				         <td>R_ID</td>
+				        </tr>';
+
+						foreach($fetch as $array)
+						{
+						    echo '<tr>
+						    		<td>'. $array['locationid'].'</td>
+						            <td>'. $array['manager_name'].'</td>
+						            <td>'. $array['phoneNumber'].'</td>
+						            <td>'. $array['address'].'</td>
+						            <td>'. $array['open_hour'].'</td>
+						            <td>'. $array['close_hour'].'</td>
+						            <td>'. $array['restaurantid'].'</td>
 						          </tr>';
 						}
 						echo '</table>';
@@ -422,6 +485,16 @@
 					}
 
 
+	// ############################################################# QUERY QUESTIONS #############################################################
+
+
+	// %%%%%%%%%%%%%%%%% QUERY A %%%%%%%%%%%%%%%%%
+
+	$queryA = pg_query($conn, "SELECT * from restaurant");
+
+
+	// %%%%%%%%%%%%%%%%% QUERY B %%%%%%%%%%%%%%%%%
+
 	$testString = "Ballin Burgers";
 
 	$queryB = pg_query($conn, "SELECT * FROM menuItem, restaurant WHERE menuItem.restaurantID = restaurant.restaurantID AND restaurant.name = '$testString'");
@@ -466,7 +539,7 @@
 
 
 
-
+	// %%%%%%%%%%%%%%%%% QUERY K %%%%%%%%%%%%%%%%%
 
 
 	$queryK = pg_query($conn, "SELECT name, join_date FROM rater r INNER JOIN (SELECT id, MAX(food) AS Max_Food, MAX(mood) AS Max_Mood FROM rating) rtng ON r.id = rtng.id AND rtng.food = Max_Food AND rtng.mood = Max_Mood");
@@ -497,7 +570,7 @@
 
 
 
-
+	// %%%%%%%%%%%%%%%%% QUERY N %%%%%%%%%%%%%%%%%
 
 	// $queryN = pg_query($conn, "SELECT name, email FROM rater , rating WHERE rater.price + rater.mood + rater.food < )");
 
@@ -524,6 +597,8 @@
 	// } else {
 	//   echo "NO RECORDS FOUND";
 	// }
+
+	// %%%%%%%%%%%%%%%%% QUERY G %%%%%%%%%%%%%%%%%
 
 	$queryG = pg_query($conn, "SELECT * FROM restaurant LEFT JOIN rating ON restaurant.restaurantID = rating.restaurantID WHERE rating.rating_date NOT LIKE '01-%-15'");
 
