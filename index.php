@@ -587,11 +587,11 @@
 
 	$testString3 = "American";
 
-	$queryC = pg_query($conn, "SELECT name, manager_name, first_open_date FROM restaurant R, location L WHERE R.category = '$testString3' AND R.restaurantID = L.restaurantID");
+	$queryC = pg_query($conn, "SELECT name, manager_name, first_open_date FROM restaurant R, location L WHERE R.type = '$testString3' AND R.restaurantID = L.restaurantID");
 
 
 	print "<pre>\n";
-	print "QUERY B\n\n";
+	print "QUERY C\n\n";
 
 	if ($fetch = pg_fetch_all($queryC)) {
 
