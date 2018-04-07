@@ -380,7 +380,7 @@
 
 					  	echo "<br />\n";
 					} else {
-					  echo "NO RECORDS FOUND"
+					  echo "NO RECORDS FOUND";
 					}
 
 
