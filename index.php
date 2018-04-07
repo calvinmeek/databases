@@ -622,7 +622,7 @@
 
 	$testString4 = "Susha Palace";
 
-	$queryD = pg_query($conn, "SELECT itemName, MAX(price), manager_name, open_hour, close_hour, url FROM restaurant R, location L, menuItem M WHERE R.name = '$testString4' AND R.restaurantID = L.restaurantID");
+	$queryD = pg_query($conn, "SELECT itemName, MAX(price), manager_name, open_hour, close_hour, url FROM restaurant R, location L, menuItem M WHERE R.name = '$testString4' AND R.restaurantID = L.restaurantID AND R.restaurantID = M.restaurantID");
 
 
 	print "<pre>\n";
