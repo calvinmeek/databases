@@ -748,6 +748,36 @@
 
 
 
+	// %%%%%%%%%%%%%%%%% QUERY G %%%%%%%%%%%%%%%%%
+
+	$queryG = pg_query($conn, "SELECT * FROM restaurant LEFT JOIN rating ON restaurant.restaurantID = rating.restaurantID WHERE rating.rating_date NOT LIKE '01-%-15'");
+
+	print "<pre>\n";
+	print "QUERY G\n\n";
+
+	if ($fetch = pg_fetch_all($queryG)) {
+
+		echo '<table>
+        <tr>
+         <td>NAME</td>
+         <td>JOIN_DATE</td>
+        </tr>';
+
+		foreach($fetch as $array)
+		{
+		    echo '<tr>
+		    		<td>'. $array['name'].'</td>
+		    		<td>'. $array['rating_date'].'</td>
+		          </tr>';
+		}
+		echo '</table>';
+
+	  	echo "<br />\n";
+	} else {
+	  echo "NO RECORDS FOUND";
+	}
+
+
 
 	// %%%%%%%%%%%%%%%%% QUERY K %%%%%%%%%%%%%%%%%
 
@@ -809,33 +839,7 @@
 	//   echo "NO RECORDS FOUND";
 	// }
 
-	// %%%%%%%%%%%%%%%%% QUERY G %%%%%%%%%%%%%%%%%
 
-	$queryG = pg_query($conn, "SELECT * FROM restaurant LEFT JOIN rating ON restaurant.restaurantID = rating.restaurantID WHERE rating.rating_date NOT LIKE '01-%-15'");
-
-	print "<pre>\n";
-
-	if ($fetch = pg_fetch_all($queryG)) {
-
-		echo '<table>
-        <tr>
-         <td>NAME</td>
-         <td>JOIN_DATE</td>
-        </tr>';
-
-		foreach($fetch as $array)
-		{
-		    echo '<tr>
-		    		<td>'. $array['name'].'</td>
-		    		<td>'. $array['rating_date'].'</td>
-		          </tr>';
-		}
-		echo '</table>';
-
-	  	echo "<br />\n";
-	} else {
-	  echo "NO RECORDS FOUND";
-	}
 
 
 
