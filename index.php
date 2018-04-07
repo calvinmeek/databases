@@ -111,29 +111,29 @@
 		// $$$$$$$$$$$$$$$$$$$$$$ ADDING LOCATIONS $$$$$$$$$$$$$$$$$$$$$$
 
 		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
-			VALUES (9-17-16,'Jimi','129-345-8888','123 Road St',1000,2000,1)");		
+			VALUES ('9-17-16','Jimi','129-345-8888','123 Road St',1000,2000,1)");		
 		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
-			VALUES (9-17-16,'Paul','399-345-2888','234 Road St',800,2100,2)");
+			VALUES ('9-17-16','Paul','399-345-2888','234 Road St',800,2100,2)");
 		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
-			VALUES (9-17-16,'Rob','234-345-5888','1333 Road St',830,2000,3)");
+			VALUES ('9-17-16','Rob','234-345-5888','1333 Road St',830,2000,3)");
 		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
-			VALUES (9-17-16,'Sally','956-345-8888','133 Road St',900,2000,4)");
+			VALUES ('9-17-16','Sally','956-345-8888','133 Road St',900,2000,4)");
 		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
-			VALUES (9-17-16,'Wallace','349-345-8888','121 Road St',1100,1300,5)");
+			VALUES ('9-17-16','Wallace','349-345-8888','121 Road St',1100,1300,5)");
 		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
-			VALUES (9-17-16,'Shaggy','399-315-1188','1 Road St',900,1900,6)");
+			VALUES ('9-17-16','Shaggy','399-315-1188','1 Road St',900,1900,6)");
 		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
-			VALUES (9-17-16,'Steve','399-375-2888','3 Road St',800,2000,7)");
+			VALUES ('9-17-16','Steve','399-375-2888','3 Road St',800,2000,7)");
 		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
-			VALUES (9-17-16,'Fred','399-349-8888','1234 Road St',1000,2000,8)");
+			VALUES ('9-17-16','Fred','399-349-8888','1234 Road St',1000,2000,8)");
 		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
-			VALUES (9-17-16,'Franky','392-345-8888','123333 Road St',700,2000,9)");
+			VALUES ('9-17-16','Franky','392-345-8888','123333 Road St',700,2000,9)");
 		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
-			VALUES (9-17-16,'Velma','391-345-8288','12322 Road St',500,1700,10)");
+			VALUES ('9-17-16','Velma','391-345-8288','12322 Road St',500,1700,10)");
 		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
-			VALUES (9-17-16,'Pete','233-345-8118','123456 Road St',900,2000,11)");
+			VALUES ('9-17-16','Pete','233-345-8118','123456 Road St',900,2000,11)");
 		$location = pg_query($conn, "INSERT INTO location(first_open_date,manager_name,phoneNumber,address,open_hour,close_hour,restaurantID) 
-			VALUES (9-17-16,'Jeff','398-345-8833','1231 Road St',800,1200,12)");
+			VALUES ('9-17-16','Jeff','398-345-8833','1231 Road St',800,1200,12)");
 
 					
 
