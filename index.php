@@ -414,7 +414,7 @@
          <td>Type</td>
          <td>Price</td>
          <td>R_ID</td>
-        </tr>';
+        </tr>'
 
 		foreach($fetch as $array)
 		{
