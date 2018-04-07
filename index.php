@@ -393,6 +393,59 @@
 				  echo "NO RECORDS FOUND";
 				}
 
+
+
+
+
+
+
+	$testString = "Ballin Burgers";
+
+	$queryB = pg_query($conn, "SELECT * FROM menuItem WHERE menuItem.restaurantID = restaurant.restaurantID AND restaurant.name = $testString");
+
+
+	print "<pre>\n";
+	print "QUERY B";
+
+	if ($fetch = pg_fetch_all($queryB)) {
+
+		echo '<table>
+        <tr>
+         <td>ID</td>
+         <td>Name</td>
+         <td>Type</td>
+         <td>Price</td>
+         <td>R_ID</td>
+        </tr>';
+
+		foreach($fetch as $array)
+		{
+		    echo '<tr>
+		    		<td>'. $array['itemid'].'</td>
+		            <td>'. $array['name'].'</td>
+		            <td>'. $array['type'].'</td>
+		            <td>'. $array['price'].'</td>
+		            <td>'. $array['restaurantid'].'</td>
+		          </tr>';
+		}
+		echo '</table>';
+
+	  	echo "<br />\n";
+	} else {
+	  echo "NO RECORDS FOUND";
+	}
+
+
+
+
+
+
+
+
+
+
+
+
 	$queryK = pg_query($conn, "SELECT name, join_date FROM rater r INNER JOIN (SELECT id, MAX(food) AS Max_Food, MAX(mood) AS Max_Mood FROM rating) rtng ON r.id = rtng.id AND rtng.food = Max_Food AND rtng.mood = Max_Mood");
 
 	print "<pre>\n";
