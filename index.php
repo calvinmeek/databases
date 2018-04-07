@@ -438,7 +438,7 @@
 						{
 						    echo '<tr>
 						    		<td>'. $array['itemid'].'</td>
-						            <td>'. $array['name'].'</td>
+						            <td>'. $array['itemname'].'</td>
 						            <td>'. $array['type'].'</td>
 						            <td>'. $array['price'].'</td>
 						            <td>'. $array['restaurantid'].'</td>
