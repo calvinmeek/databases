@@ -65,7 +65,7 @@
 
 	// ############################################################# POPULATING TABLES #############################################################
 
-	$check = pg_query($conn, "SELECT * FROM rater")
+	$check = pg_query($conn, "SELECT * FROM rater");
 
 	if (!$fetch = pg_fetch_all($rater)) {
 
