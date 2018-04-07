@@ -622,13 +622,13 @@
 
 	$testString4 = "Sushi Palace";
 
-	$queryD = pg_query($conn, "SELECT itemName, MAX(price), manager_name, open_hour, close_hour, url FROM restaurant R, location L, menuItem M WHERE R.name = '$testString4' AND R.restaurantID = L.restaurantID AND R.restaurantID = M.restaurantID GROUP BY price,itemName,manager_name,open_hour,close_hour,url");
+	$queryD = pg_query($conn, "SELECT itemName, price, manager_name, open_hour, close_hour, url FROM restaurant R, location L, menuItem M WHERE R.name = '$testString4' AND R.restaurantID = L.restaurantID AND R.restaurantID = M.restaurantID GROUP BY itemName");
 
 
 	print "<pre>\n";
 	print "QUERY D\n\n";
 
-	if ($fetch = pg_fetch_all($queryC)) {
+	if ($fetch = pg_fetch_all($queryD)) {
 
 		echo '<table>
         <tr>
