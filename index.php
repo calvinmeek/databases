@@ -403,7 +403,7 @@
 
 
 	print "<pre>\n";
-	print "QUERY B";
+	print "QUERY B\n\n";
 
 	if ($fetch = pg_fetch_all($queryB)) {
 
