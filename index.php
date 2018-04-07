@@ -618,6 +618,48 @@
 	}
 
 
+	// %%%%%%%%%%%%%%%%% QUERY D %%%%%%%%%%%%%%%%%
+
+	$testString4 = "Susha Palace";
+
+	$queryD = pg_query($conn, "SELECT itemName, MAX(price), manager_name, open_hour, close_hour, url FROM restaurant R, location L, menuItem M WHERE R.name = '$testString4' AND R.restaurantID = L.restaurantID");
+
+
+	print "<pre>\n";
+	print "QUERY D\n\n";
+
+	if ($fetch = pg_fetch_all($queryC)) {
+
+		echo '<table>
+        <tr>
+         <td>I_Name</td>
+         <td>Price</td>
+         <td>M_Name</td>
+         <td>Open</td>
+         <td>Close</td>
+         <td>url</td>
+
+        </tr>';
+
+		foreach($fetch as $array)
+		{
+		    echo '<tr>
+		    		<td>'. $array['itemname'].'</td>
+		    		<td>'. $array['price'].'</td>
+		            <td>'. $array['manager_name'].'</td>
+		            <td>'. $array['open_hour'].'</td>
+		            <td>'. $array['close_hour'].'</td>
+		            <td>'. $array['url'].'</td>
+
+		          </tr>';
+		}
+		echo '</table>';
+
+	  	echo "<br />\n";
+	} else {
+	  echo "NO RECORDS FOUND";
+	}
+
 
 
 
