@@ -26,7 +26,7 @@
 
 	// $drop = pg_query($conn, "DROP SCHEMA public CASCADE");
 
-	$rater = pg_query($conn, "CREATE TABLE IF NOT EXISTS rater(id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, name VARCHAR(15) NOT NULL, join_date VARCHAR(30) NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)");
+	$rater = pg_query($conn, "CREATE TABLE IF NOT EXISTS rater(id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, usrName VARCHAR(15) NOT NULL, join_date VARCHAR(30) NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)");
 
 
 
@@ -73,21 +73,21 @@
 
 		// $$$$$$$$$$$$$$$$$$$$$$ ADDING RATERS $$$$$$$$$$$$$$$$$$$$$$
 
-		$rater0 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('cmeek070@email.ca','Calvin','05-06-99','Blog',5)");
-		$rater1 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('aabbb@email.ca','Alvin','05-07-17','Online',3)");
-		$rater2 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('rr234@email.ca','Rick','01-26-34','Critic',3)");
-		$rater3 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('sz23@email.ca','John','12-22-06','Online',1)");
-		$rater4 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('jiimm01@email.ca','Jim','01-02-01','Critic',3)");
-		$rater5 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('mortyiscool@email.ca','Morty','05-26-19','Critic',2)");
-		$rater6 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('sk234@email.ca','Shrek','02-16-39','Online',4)");
-		$rater7 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('rog123@email.ca','Roger','10-16-12','Blog',3)");
-		$rater8 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('m1234566@email.ca','Mike','11-17-99','Blog',1)");
-		$rater9 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('kyle123@email.ca','Kyle','09-21-96','Blog',1)");
-		$rater10 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('oaddddddd@email.ca','Owen','08-12-95','Online',4)");
-		$rater11 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('noahman@email.ca','Noah','12-22-12','Blog',3)");
-		$rater12 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('baseball123@email.ca','Ryan','10-20-30','Critic',4)");
-		$rater13 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('gamerguy1@email.ca','David','05-30-12','Critic',4)");
-		$rater14 = pg_query($conn, "INSERT INTO rater(email,name,join_date,type,rep) VALUES ('biker1234578@email.ca','Jake','11-12-23','Online',5)");
+		$rater0 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('cmeek070@email.ca','Calvin','05-06-99','Blog',5)");
+		$rater1 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('aabbb@email.ca','Alvin','05-07-17','Online',3)");
+		$rater2 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('rr234@email.ca','Rick','01-26-34','Critic',3)");
+		$rater3 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('sz23@email.ca','John','12-22-06','Online',1)");
+		$rater4 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('jiimm01@email.ca','Jim','01-02-01','Critic',3)");
+		$rater5 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('mortyiscool@email.ca','Morty','05-26-19','Critic',2)");
+		$rater6 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('sk234@email.ca','Shrek','02-16-39','Online',4)");
+		$rater7 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('rog123@email.ca','Roger','10-16-12','Blog',3)");
+		$rater8 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('m1234566@email.ca','Mike','11-17-99','Blog',1)");
+		$rater9 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('kyle123@email.ca','Kyle','09-21-96','Blog',1)");
+		$rater10 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('oaddddddd@email.ca','Owen','08-12-95','Online',4)");
+		$rater11 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('noahman@email.ca','Noah','12-22-12','Blog',3)");
+		$rater12 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('baseball123@email.ca','Ryan','10-20-30','Critic',4)");
+		$rater13 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('gamerguy1@email.ca','David','05-30-12','Critic',4)");
+		$rater14 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('biker1234578@email.ca','Jake','11-12-23','Online',5)");
 
 
 					
@@ -329,7 +329,7 @@
 						    echo '<tr>
 						    		<td>'. $array['id'].'</td>
 						            <td>'. $array['email'].'</td>
-						            <td>'. $array['name'].'</td>
+						            <td>'. $array['usrName'].'</td>
 						          </tr>';
 						}
 						echo '</table>';
@@ -710,7 +710,7 @@
 	// %%%%%%%%%%%%%%%%% QUERY F %%%%%%%%%%%%%%%%%
 
 
-	$queryF = pg_query($conn, "SELECT R.name, Rtr.name, Rt.price, Rt.food, Rt.mood FROM restaurant R, rating Rt, rater Rtr WHERE Rt.restaurantID = R.restaurantID AND Rt.id = Rtr.id GROUP BY R.name, Rtr.name,Rt.price,Rt.food,Rt.mood");
+	$queryF = pg_query($conn, "SELECT R.name, Rtr.usrName, Rt.price, Rt.food, Rt.mood FROM restaurant R, rating Rt, rater Rtr WHERE Rt.restaurantID = R.restaurantID AND Rt.id = Rtr.id GROUP BY R.name, Rtr.name,Rt.price,Rt.food,Rt.mood");
 
 
 	print "<pre>\n";
@@ -731,8 +731,8 @@
 		foreach($fetch as $array)
 		{
 		    echo '<tr>
-		    		<td>'. $array['r.name'].'</td>
-		    		<td>'. $array['rtr.name'].'</td>
+		    		<td>'. $array['name'].'</td>
+		    		<td>'. $array['usrName'].'</td>
 		            <td>'. $array['price'].'</td>
 		            <td>'. $array['food'].'</td>
 		            <td>'. $array['mood'].'</td>
