@@ -720,24 +720,22 @@
 
 		echo '<table>
         <tr>
-         <td>I_Name</td>
+         <td>R_Name</td>
+         <td>Rtr_Name</td>
          <td>Price</td>
-         <td>M_Name</td>
-         <td>Open</td>
-         <td>Close</td>
-         <td>url</td>
+         <td>Food</td>
+         <td>Mood</td>
 
         </tr>';
 
 		foreach($fetch as $array)
 		{
 		    echo '<tr>
-		    		<td>'. $array['itemname'].'</td>
-		    		<td>'. $array['price'].'</td>
-		            <td>'. $array['manager_name'].'</td>
-		            <td>'. $array['open_hour'].'</td>
-		            <td>'. $array['close_hour'].'</td>
-		            <td>'. $array['url'].'</td>
+		    		<td>'. $array['r.name'].'</td>
+		    		<td>'. $array['rtr.name'].'</td>
+		            <td>'. $array['price'].'</td>
+		            <td>'. $array['food'].'</td>
+		            <td>'. $array['mood'].'</td>
 
 		          </tr>';
 		}
