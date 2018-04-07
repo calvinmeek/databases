@@ -397,7 +397,7 @@
 
 
 
-	$testString = 'Ballin Burgers';
+	DECLARE @testString INT = 'Ballin Burgers';
 
 	$queryB = pg_query($conn, "SELECT * FROM menuItem, restaurant WHERE menuItem.restaurantID = restaurant.restaurantID AND restaurant.name = @testString");
 
