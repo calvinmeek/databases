@@ -583,6 +583,41 @@
 	}
 
 
+	// %%%%%%%%%%%%%%%%% QUERY C %%%%%%%%%%%%%%%%%
+
+	$testString3 = "American";
+
+	$queryC = pg_query($conn, "SELECT name, manager_name, first_open_date FROM restaurant R, location L WHERE R.category = '$testString3' AND R.restaurantID = L.restaurantID");
+
+
+	print "<pre>\n";
+	print "QUERY B\n\n";
+
+	if ($fetch = pg_fetch_all($queryC)) {
+
+		echo '<table>
+        <tr>
+         <td>R_Name</td>
+         <td>M_Name</td>
+         <td>Open Date</td>
+        </tr>';
+
+		foreach($fetch as $array)
+		{
+		    echo '<tr>
+		    		<td>'. $array['name'].'</td>
+		            <td>'. $array['manager_name'].'</td>
+		            <td>'. $array['first_open_date'].'</td>
+		          </tr>';
+		}
+		echo '</table>';
+
+	  	echo "<br />\n";
+	} else {
+	  echo "NO RECORDS FOUND";
+	}
+
+
 
 
 
