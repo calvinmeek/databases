@@ -496,7 +496,45 @@
 
 	// %%%%%%%%%%%%%%%%% QUERY A %%%%%%%%%%%%%%%%%
 
-	$queryA = pg_query($conn, "SELECT * from restaurant");
+	$testString2 = "Ballin Burgers";				
+
+	$queryA = pg_query($conn, "SELECT * from restaurant R, location L WHERE R.restaurantID = l.restaurantID AND R.name = '$testString2'");
+
+	print "<pre>\n";
+	print "QUERY A\n\n";
+
+	if ($fetch = pg_fetch_all($queryA)) {
+
+		echo '<table>
+        <tr>
+         <td>ID</td>
+         <td>Name</td>
+         <td>Type</td>
+         <td>URL</td>
+        </tr>';
+
+		foreach($fetch as $array)
+		{
+		    echo '<tr>
+		    		<td>'. $array['restaurantid'].'</td>
+		            <td>'. $array['name'].'</td>
+		            <td>'. $array['type'].'</td>
+		            <td>'. $array['url'].'</td>
+		            <td>'. $array['locationid'].'</td>
+		    		<td>'. $array['first_open_date'].'</td>
+		            <td>'. $array['manager_name'].'</td>
+		            <td>'. $array['phonenumber'].'</td>
+		            <td>'. $array['address'].'</td>
+		            <td>'. $array['open_hour'].'</td>
+		            <td>'. $array['close_hour'].'</td>
+		          </tr>';
+		}
+		echo '</table>';
+
+	  	echo "<br />\n";
+	} else {
+	  echo "NO RECORDS FOUND";
+	}
 
 
 	// %%%%%%%%%%%%%%%%% QUERY B %%%%%%%%%%%%%%%%%
