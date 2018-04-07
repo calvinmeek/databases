@@ -399,7 +399,7 @@
 
 	$testString = "Ballin Burgers";
 
-	$queryB = pg_query($conn, "SELECT id, name FROM menuItem, restaurant WHERE menuItem.restaurantID = restaurant.restaurantID AND restaurant.name = '$testString'");
+	$queryB = pg_query($conn, "SELECT * FROM menuItem, restaurant WHERE menuItem.restaurantID = restaurant.restaurantID AND restaurant.name = '$testString'");
 
 
 	print "<pre>\n";
