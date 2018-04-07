@@ -394,9 +394,7 @@
 				}
 
 
-
-
-
+				
 
 
 	$testString = "Ballin Burgers";
