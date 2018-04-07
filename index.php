@@ -394,10 +394,10 @@
 				}
 
 
-				
 
 
-	$testString = "Ballin Burgers";
+
+	$testString = 'Ballin Burgers';
 
 	$queryB = pg_query($conn, "SELECT * FROM menuItem WHERE menuItem.restaurantID = restaurant.restaurantID AND restaurant.name = $testString");
 
