@@ -844,6 +844,38 @@
 	}
 
 
+	// %%%%%%%%%%%%%%%%% QUERY J %%%%%%%%%%%%%%%%%
+
+	$testString6 = "Asian";
+
+	$queryJ = pg_query($conn, "SELECT R.name, R.restaurantID, [Rt.price] + [Rt.food] + [Rt.mood] + [Rt.staff] AS totalsum FROM restaurant R, rating Rt GROUP BY R.name HAVING totalsum > 20");
+
+	print "<pre>\n";
+	print "QUERY J\n\n";
+
+	if ($fetch = pg_fetch_all($queryJ)) {
+
+		echo '<table>
+        <tr>
+         <td>R_name</td>
+         <td>R_ID</td>
+        </tr>';
+
+		foreach($fetch as $array)
+		{
+		    echo '<tr>
+		    		<td>'. $array['name'].'</td>
+		    		<td>'. $array['restaurantid'].'</td>
+		          </tr>';
+		}
+		echo '</table>';
+
+	  	echo "<br />\n";
+	} else {
+	  echo "NO RECORDS FOUND";
+	}
+
+
 
 	// %%%%%%%%%%%%%%%%% QUERY K %%%%%%%%%%%%%%%%%
 
