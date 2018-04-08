@@ -848,7 +848,7 @@
 
 	$testString6 = "Asian";
 
-	$queryJ = pg_query($conn, "SELECT R.name, R.restaurantID FROM restaurant R GROUP BY R.restaurantID, R.name, Rt.price, Rt.food, Rt.mood, Rt.staff HAVING rating.price + rating.food + rating.mood + rating.staff > 15");
+	$queryJ = pg_query($conn, "SELECT * FROM restaurant WHERE restaurantID IN (SELECT R.name, R.restaurantID, Rt.price, Rt.food, Rt.mood, Rt.staff FROM restaurant R, rating Rt GROUP BY R.restaurantID, R.name, Rt.price, Rt.food, Rt.mood, Rt.staff HAVING Rt.price + Rt.food + Rt.mood + Rt.staff > 15 AND )");
 
 	print "<pre>\n";
 	print "QUERY J\n\n";
