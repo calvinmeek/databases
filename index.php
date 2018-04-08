@@ -859,6 +859,11 @@
         <tr>
          <td>R_name</td>
          <td>R_ID</td>
+         <td>Price</td>
+         <td>Food</td>
+         <td>Mood</td>
+         <td>Staff</td>
+
         </tr>';
 
 		foreach($fetch as $array)
@@ -866,6 +871,10 @@
 		    echo '<tr>
 		    		<td>'. $array['name'].'</td>
 		    		<td>'. $array['restaurantid'].'</td>
+		    		<td>'. $array['price'].'</td>
+		    		<td>'. $array['food'].'</td>
+		    		<td>'. $array['mood'].'</td>
+		    		<td>'. $array['staff'].'</td>
 		          </tr>';
 		}
 		echo '</table>';
