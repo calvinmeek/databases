@@ -783,7 +783,7 @@
 
 	$testString5 = "Calvin";
 
-	$queryH = pg_query($conn, "SELECT R.name, L.first_open_date, MIN(Rt.staff) AS mini FROM restaurant R, location L, rating Rt, rater Rtr, (SELECT id, MIN(staff) AS min FROM rating GROUP BY id) minStaff WHERE R.restaurantID = L.restaurantID AND Rt.restaurantID = R.restaurantID AND minStaff.id = Rt.id AND mini < minStaff.min AND Rtr.name = '$testString5'");
+	$queryH = pg_query($conn, "SELECT R.name, L.first_open_date, MIN(Rt.staff) AS mini FROM restaurant R, location L, rating Rt, rater Rtr, (SELECT id, MIN(staff) AS min FROM rating GROUP BY id) minStaff WHERE R.restaurantID = L.restaurantID AND Rt.restaurantID = R.restaurantID AND minStaff.id = Rt.id AND Rt.staff < minStaff.min AND Rtr.name = '$testString5'");
 
 	print "<pre>\n";
 	print "QUERY H\n\n";
