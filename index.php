@@ -889,7 +889,7 @@
 	// %%%%%%%%%%%%%%%%% QUERY K %%%%%%%%%%%%%%%%%
 
 
-	$queryK = pg_query($conn, "SELECT usrName, join_date, rep FROM rater r, rating rt INNER JOIN (SELECT id, MAX(food) AS Max_Food, MAX(mood) AS Max_Mood FROM rating GROUP BY id) rtng ON rtng.id = r.id AND r.id = rt.id AND rt.food = rtng.Max_Food AND rt.mood = rtng.Max_Mood");
+	$queryK = pg_query($conn, "SELECT R.usrName, R.join_date, R.rep, Rt.food, Rt.mood FROM rater R, rating Rt INNER JOIN (SELECT id, MAX(food) AS Max_Food, MAX(mood) AS Max_Mood FROM rating GROUP BY id) rtng ON rtng.id = R.id AND R.id = Rt.id AND Rt.food = rtng.Max_Food AND Rt.mood = rtng.Max_Mood");
 
 	print "<pre>\n";
 	print "QUERY K\n\n";
