@@ -816,7 +816,7 @@
 
 	$testString6 = "American";
 
-	$queryI = pg_query($conn, "SELECT R.name, Rtr.usrName, MAX(Rt.food) AS maxfood FROM restaurant R, Rater Rtr, rating Rt WHERE R.type = '$testString6' AND R.restaurantID = Rt.restaurantID");
+	$queryI = pg_query($conn, "SELECT R.name, Rtr.usrName, MAX(Rt.food) AS maxfood FROM restaurant R, Rater Rtr, rating Rt WHERE R.type = '$testString6' AND R.restaurantID = Rt.restaurantID GROUP BY R.name,Rtr.usrName,maxfood");
 
 	print "<pre>\n";
 	print "QUERY I\n\n";
