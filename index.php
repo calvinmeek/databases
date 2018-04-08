@@ -889,7 +889,7 @@
 	// %%%%%%%%%%%%%%%%% QUERY K %%%%%%%%%%%%%%%%%
 
 
-	$queryK = pg_query($conn, "SELECT * FROM rater R LEFT JOIN rating Rt ON Rt.id = R.id JOIN INNER JOIN (SELECT id, MAX(food) AS Max_Food, MAX(mood) AS Max_Mood FROM rating GROUP BY id) rtng ON rtng.id = R.id AND R.id = Rt.id AND Rt.food = rtng.Max_Food AND Rt.mood = rtng.Max_Mood");
+	$queryK = pg_query($conn, "SELECT R.usrName, R.join_date, R.rep FROM rater R, rating Rt, restaurant Rst WHERE Rst.restaurantID = Rt.restaurantID AND R.id = Rt.id AND Rst.restaurantid =  R.id GROUP BY  R.join_date, R.usrName, R.rep HAVING (Rt.food + Rt.mood) > 7");
 
 	print "<pre>\n";
 	print "QUERY K\n\n";
