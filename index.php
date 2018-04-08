@@ -918,15 +918,15 @@
 
 
 
-	// %%%%%%%%%%%%%%%%% QUERY N %%%%%%%%%%%%%%%%%
+	// %%%%%%%%%%%%%%%%% QUERY L %%%%%%%%%%%%%%%%%
 
 	// $testString12 = "Asian";
 
-	$queryN = pg_query($conn, "SELECT R.usrName, R.email, R.rep FROM rater R, rating Rt, restaurant Rst WHERE Rst.restaurantID = Rt.restaurantID AND R.id = Rt.id AND Rst.restaurantid =  R.id GROUP BY R.id, R.usrName, R.rep HAVING (Rt.food + Rt.mood) > 7");
+	$queryL = pg_query($conn, "SELECT R.usrName, R.join_date, R.rep FROM rater R, rating Rt, restaurant Rst WHERE Rst.restaurantID = Rt.restaurantID AND R.id = Rt.id AND Rst.restaurantid =  R.id GROUP BY  R.join_date, R.usrName, R.rep HAVING (Rt.food + Rt.mood) > 7");
 
 	print "<pre>\n";
 
-	if ($fetch = pg_fetch_all($queryK)) {
+	if ($fetch = pg_fetch_all($queryL)) {
 
 		echo '<table>
         <tr>
