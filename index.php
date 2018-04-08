@@ -812,6 +812,39 @@
 
 
 
+	// %%%%%%%%%%%%%%%%% QUERY I %%%%%%%%%%%%%%%%%
+
+	$testString6 = "American";
+
+	$queryI = pg_query($conn, "SELECT R.name, Rtr.usrName, MAX(Rt.food) AS maxfood FROM restaurant R, Rater Rtr, rating Rt WHERE R.type = '$testString6' AND R.restaurantID = Rt.restaurantID");
+
+	print "<pre>\n";
+	print "QUERY I\n\n";
+
+	if ($fetch = pg_fetch_all($queryI)) {
+
+		echo '<table>
+        <tr>
+         <td>R_name</td>
+         <td>usr_name</td>
+        </tr>';
+
+		foreach($fetch as $array)
+		{
+		    echo '<tr>
+		    		<td>'. $array['name'].'</td>
+		    		<td>'. $array['usrname'].'</td>
+		          </tr>';
+		}
+		echo '</table>';
+
+	  	echo "<br />\n";
+	} else {
+	  echo "NO RECORDS FOUND";
+	}
+
+
+
 	// %%%%%%%%%%%%%%%%% QUERY K %%%%%%%%%%%%%%%%%
 
 
