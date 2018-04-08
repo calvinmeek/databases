@@ -471,6 +471,7 @@
 				         <td>Price</td>
 				         <td>Food</td>
 				         <td>Mood</td>
+				         <td>Staff</td>
 				         <td>R_ID</td>
 				        </tr>';
 
@@ -482,6 +483,7 @@
 						            <td>'. $array['price'].'</td>
 						            <td>'. $array['food'].'</td>
 						            <td>'. $array['mood'].'</td>
+						            <td>'. $array['staff'].'</td>
 						            <td>'. $array['restaurantid'].'</td>
 						          </tr>';
 						}
@@ -756,6 +758,37 @@
 	print "QUERY G\n\n";
 
 	if ($fetch = pg_fetch_all($queryG)) {
+
+		echo '<table>
+        <tr>
+         <td>NAME</td>
+         <td>JOIN_DATE</td>
+        </tr>';
+
+		foreach($fetch as $array)
+		{
+		    echo '<tr>
+		    		<td>'. $array['name'].'</td>
+		    		<td>'. $array['rating_date'].'</td>
+		          </tr>';
+		}
+		echo '</table>';
+
+	  	echo "<br />\n";
+	} else {
+	  echo "NO RECORDS FOUND";
+	}
+
+	// %%%%%%%%%%%%%%%%% QUERY H %%%%%%%%%%%%%%%%%
+
+	$testString5 = "Calvin";
+
+	$queryH = pg_query($conn, "SELECT name, first_open_date FROM restaurant ");
+
+	print "<pre>\n";
+	print "QUERY H\n\n";
+
+	if ($fetch = pg_fetch_all($queryH)) {
 
 		echo '<table>
         <tr>
