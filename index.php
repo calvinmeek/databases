@@ -792,15 +792,15 @@
 
 		echo '<table>
         <tr>
-         <td>NAME</td>
-         <td>JOIN_DATE</td>
+         <td>R_name</td>
+         <td>open_date</td>
         </tr>';
 
 		foreach($fetch as $array)
 		{
 		    echo '<tr>
 		    		<td>'. $array['name'].'</td>
-		    		<td>'. $array['rating_date'].'</td>
+		    		<td>'. $array['first_open_date'].'</td>
 		          </tr>';
 		}
 		echo '</table>';
