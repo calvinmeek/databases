@@ -447,7 +447,7 @@
 				$miCate = $_POST["iCate"];
 				$miDesc = $_POST["iDesc"];
 				$miPrice = $_POST["iPrice"];
-				$miRID = $_POST[iRID];
+				$miRID = $_POST['iRID'];
 
 				$miRN = $_POST["rIName"];
 				$miRID = $_POST["rIID"];
