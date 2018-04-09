@@ -894,6 +894,9 @@
         <tr>
          <td>NAME</td>
          <td>JOIN_DATE</td>
+         <td>rep</td>
+         <td>rating date</td>
+         <td>R_name</td>
         </tr>';
 
 		foreach($fetch as $array)
@@ -901,6 +904,9 @@
 		    echo '<tr>
 		    		<td>'. $array['usrname'].'</td>
 		    		<td>'. $array['join_date'].'</td>
+		    		<td>'. $array['rep'].'</td>
+		    		<td>'. $array['rating_date'].'</td>
+		    		<td>'. $array['name'].'</td>
 		          </tr>';
 		}
 		echo '</table>';
