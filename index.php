@@ -312,7 +312,9 @@
 			<link rel="stylesheet" type="text/css" href="style.css">
 		</head>
 
-		<div>
+		<body>
+			
+			<div>
 
 			<div class="functionBox">
 
@@ -428,6 +430,10 @@
 				</form>
 
 			</div>
+
+		</body>
+
+		
 			
 
 			<?php
