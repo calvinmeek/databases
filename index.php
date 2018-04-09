@@ -26,7 +26,7 @@
 
 	// $drop = pg_query($conn, "DROP SCHEMA public CASCADE");
 
-	$rater = pg_query($conn, "CREATE TABLE IF NOT EXISTS rater(id SERIAL PRIMARY KEY ON DELETE CASCADE, email VARCHAR(30) NOT NULL, usrName VARCHAR(15) NOT NULL, join_date VARCHAR(30) NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)");
+	$rater = pg_query($conn, "CREATE TABLE IF NOT EXISTS rater(id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, usrName VARCHAR(15) NOT NULL, join_date VARCHAR(30) NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)");
 
 
 
@@ -35,7 +35,7 @@
 
 
 
-	$rating = pg_query($conn, "CREATE TABLE IF NOT EXISTS rating(id INT REFERENCES rater(id) ON DELETE CASCADE, rating_date VARCHAR(10), price INT, food INT, mood INT, staff INT, comments VARCHAR(255), restaurantID INT REFERENCES restaurant(restaurantID) ON DELETE CASCADE, PRIMARY KEY(id,rating_date))");
+	$rating = pg_query($conn, "CREATE TABLE IF NOT EXISTS rating(id INT REFERENCES rater(id), rating_date VARCHAR(10), price INT, food INT, mood INT, staff INT, comments VARCHAR(255), restaurantID INT REFERENCES restaurant(restaurantID) ON DELETE CASCADE, PRIMARY KEY(id,rating_date))");
 
 
 
