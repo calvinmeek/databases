@@ -469,7 +469,7 @@
 				}
 
 				if($miName){
-					$rater0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('$miName','$miType','$miCate','$miDesc','$miPrice ','$miRID')");
+					$rater0 = pg_query($conn, "INSERT INTO menuItem(itemName,type,category,description,price,restaurantID) VALUES ('$miName','$miType','$miCate','$miDesc','$miPrice ','$miRID')");
 				}
 
 				if($miRN){
