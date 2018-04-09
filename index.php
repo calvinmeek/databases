@@ -332,7 +332,7 @@
 			</form>
 
 
-			<p>REMOVE A RATER:</p>
+			<p class="functionTitle">REMOVE A RATER:</p>
 
 			<form method="post" action="">
 				NAME<br>
@@ -343,7 +343,7 @@
 				<input type="submit" name="Submit">
 			</form>
 
-			<p>ADD A RESTAURANT:</p>
+			<p class="functionTitle">ADD A RESTAURANT:</p>
 
 			<form method="post" action="">
 				NAME<br>
@@ -356,7 +356,7 @@
 				<input type="submit" name="Submit">
 			</form>
 
-			<p>REMOVE A RESTAURANT:</p>
+			<p class="functionTitle">REMOVE A RESTAURANT:</p>
 
 			<form method="post" action="">
 				NAME<br>
