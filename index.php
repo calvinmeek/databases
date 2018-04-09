@@ -919,7 +919,7 @@
 
 	// $testString12 = "Asian";
 
-	$queryL = pg_query($conn, "SELECT R.usrName, R.rep, Rst.name, Rt.rating_date FROM rater R, rating R8ng, restaurant Rst WHERE R.id IN (SELECT r1.id FROM rater r1 WHERE (SELECT AVG(mood) FROM rating rt1 WHERE rt1.id = r1.id) >= ALL SELECT(AVG(mood) FROM rating rt1 GROUP BY rt1.id) OR (SELECT AVG(mood) FROM rating rt1 WHERE rt1.id = r1.id) >= ALL (SELECT AVG(mood) FROM rating rt1 GROUP BY rt1.id)) AND R8ng.id = R.id AND R8ng.restaurantID = Rst.restaurantID");
+	$queryL = pg_query($conn, "SELECT R.usrName, R.rep, Rst.name, Rt.rating_date FROM rater R, rating R8ng, restaurant Rst WHERE R.id IN (SELECT r1.id FROM rater r1 WHERE (SELECT AVG(mood) FROM rating rt1 WHERE rt1.id = r1.id) >= ALL (SELECT(AVG(mood) FROM rating rt1 GROUP BY rt1.id) OR (SELECT AVG(mood) FROM rating rt1 WHERE rt1.id = r1.id) >= ALL (SELECT AVG(mood) FROM rating rt1 GROUP BY rt1.id)) AND R8ng.id = R.id AND R8ng.restaurantID = Rst.restaurantID");
 
 	print "<pre>\n";
 	print "QUERY L\n\n";
