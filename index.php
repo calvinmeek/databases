@@ -314,7 +314,7 @@
 
 		<div>
 
-			<p>REGISTER AS A RATER:</p>
+			<p class="functionTitle">REGISTER AS A RATER:</p>
 
 			<form method="post" action="">
 				EMAIL<br>
