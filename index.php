@@ -328,7 +328,7 @@
 
 				echo $_POST["rName"];
 
-				$addRestaurant = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('$_POST["rName"]','$_POST["rName"]','$_POST["rName"]')");
+				$addRestaurant = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('$_POST['rName']','$_POST['rType']','$_POST['rURL']')");
 
 
 			?>
