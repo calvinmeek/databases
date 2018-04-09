@@ -303,6 +303,8 @@
 
 ?>
 
+	<!-- %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% UI SECTION %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% -->
+
 
 	<html>
 
@@ -311,6 +313,24 @@
 		</head>
 
 		<div>
+
+			<p>REGISTER AS A RATER:</p>
+
+			<form method="post" action="">
+				EMAIL<br>
+				<input type="text" name="rtrEmail">
+				<br>USER NAME<br>
+				<input type="text" name="rtrName">
+				<br>ENTER TODAY's DATE<br>
+				<input type="text" name="rtrJDate">
+				<br>TYPE
+				<input type="text" name="rtrType">
+				<br>REPUTATION<br>
+				<input type="text" name="rtrRep">
+				<br>
+				<input type="submit" name="Submit2">
+			</form>
+
 			<p>ADD A RESTAURANT:</p>
 
 			<form method="post" action="">
