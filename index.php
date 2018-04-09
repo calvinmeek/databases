@@ -335,21 +335,6 @@
 
 			</div>
 
-			<div class="functionBox">
-				
-				<p class="functionTitle">REMOVE A RATER:</p>
-
-				<form method="post" action="">
-					
-					<input type="text" name="ratName" placeholder="Name">
-					<br>
-					<input type="text" name="ratID" placeholder="ID">
-					<br>
-					<input type="submit" name="Submit">
-				</form>
-
-			</div>
-
 
 			<div class="functionBox">
 				
@@ -362,22 +347,6 @@
 					<input type="text" name="rType" placeholder="Type">
 					<br>
 					<input type="text" name="rURL" placeholder="URL">
-					<br>
-					<input type="submit" name="Submit">
-				</form>
-
-			</div>
-
-
-			<div class="functionBox">
-				
-				<p class="functionTitle">REMOVE A RESTAURANT:</p>
-
-				<form method="post" action="">
-					
-					<input type="text" name="dRName" placeholder="Name">
-					<br>
-					<input type="text" name="dRID" placeholder="ID">
 					<br>
 					<input type="submit" name="Submit">
 				</form>
@@ -406,6 +375,43 @@
 				</form>
 
 			</div>
+
+
+			<div class="functionBox">
+				
+				<p class="functionTitle">REMOVE A RATER:</p>
+
+				<form method="post" action="">
+					
+					<input type="text" name="ratName" placeholder="Name">
+					<br>
+					<input type="text" name="ratID" placeholder="ID">
+					<br>
+					<input type="submit" name="Submit">
+				</form>
+
+			</div>
+
+
+			
+
+
+			<div class="functionBox">
+				
+				<p class="functionTitle">REMOVE A RESTAURANT:</p>
+
+				<form method="post" action="">
+					
+					<input type="text" name="dRName" placeholder="Name">
+					<br>
+					<input type="text" name="dRID" placeholder="ID">
+					<br>
+					<input type="submit" name="Submit">
+				</form>
+
+			</div>
+
+			
 
 
 			<div class="functionBox">
