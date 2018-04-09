@@ -364,12 +364,22 @@
 				$dRN = $_POST["dRName"];
 				$dRI = $_POST["dRID"];
 
+				$rtrEmail = $_POST["rtrEmail"];
+				$rtrName = $_POST["rtrName"];
+				$rtrTDate = $_POST["rtrJDate"];
+				$rtrType = $_POST["rtrType"];
+				$rtrRep = $_POST["rtrRep"];
+
 				if($rstN){
 					$addRestaurant = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('$rstN','$rstT','$rstU')");
 				}
 
 				if($dRN){
 					$removeRestaurant = pg_query($conn, "DELETE FROM restaurant WHERE restaurant.name = '$dRN' AND restaurant.restaurantID = '$dRI'");
+				}
+
+				if($rtrEmail){
+					$rater0 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('$rtrEmail','$rtrName','$rtrJDate','$rtrType','$rtrRep')");
 				}
 
 				
