@@ -442,15 +442,15 @@
 				$ratName = $_POST["ratName"];
 				$ratID = $_POST["ratID"];
 
-				$miName = $_POST['iName'];
-				$miType = $_POST['iType'];
-				$miCate = $_POST['iCate'];
-				$miDesc = $_POST['iDesc'];
-				$miPrice = $_POST['iPrice'];
-				$miRID = $_POST['iRID'];
+				$miName = $_POST["iName"];
+				$miType = $_POST["iType"];
+				$miCate = $_POST["iCate"];
+				$miDesc = $_POST["iDesc"];
+				$miPrice = $_POST["iPrice"];
+				$miRID = $_POST["iRID"];
 
-				$miRN = $_POST['rIName'];
-				$miRID = $_POST['rIID'];
+				$miRN = $_POST["rIName"];
+				$miRID = $_POST["rIID"];
 
 				if($rstN){
 					$addRestaurant = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('$rstN','$rstT','$rstU')");
