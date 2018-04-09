@@ -331,6 +331,18 @@
 				<input type="submit" name="Submit2">
 			</form>
 
+
+			<p>REMOVE A RATER:</p>
+
+			<form method="post" action="">
+				NAME<br>
+				<input type="text" name="ratName">
+				<br>ID<br>
+				<input type="text" name="ratID">
+				<br>
+				<input type="submit" name="Submit">
+			</form>
+
 			<p>ADD A RESTAURANT:</p>
 
 			<form method="post" action="">
@@ -370,6 +382,9 @@
 				$rtrType = $_POST["rtrType"];
 				$rtrRep = $_POST["rtrRep"];
 
+				$ratName = $_POST["ratName"];
+				$ratID = $_POST["ratID"];
+
 				if($rstN){
 					$addRestaurant = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('$rstN','$rstT','$rstU')");
 				}
@@ -380,6 +395,10 @@
 
 				if($rtrEmail){
 					$rater0 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('$rtrEmail','$rtrName','$rtrJDate','$rtrType','$rtrRep')");
+				}
+
+				if($ratName){
+					$removeRater = pg_query($conn, "DELETE FROM restaurant WHERE rater.usrName = '$ratName' AND rater.id = '$ratID'");
 				}
 
 				
