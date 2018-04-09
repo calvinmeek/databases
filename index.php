@@ -314,7 +314,6 @@
 
 		<body>
 			
-			<div>
 
 			<div class="functionBox">
 
