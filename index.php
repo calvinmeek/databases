@@ -883,7 +883,7 @@
 	// %%%%%%%%%%%%%%%%% QUERY K %%%%%%%%%%%%%%%%%
 
 
-	$queryK = pg_query($conn, "SELECT R.usrName, R.join_date, R.rep, Rt.rating_date, Rst.name FROM rater R, rating Rt, restaurant Rst WHERE R.id IN (SELECT r1.id FROM rater r1 GROUP BY r1.id HAVING (SELECT AVG(Rt.mood + Rt.food) FROM rating Rt WHERE Rt.id = r1.id) >= ALL (SELECT AVG(Rt1.mood + Rt1.food) FROM rating Rt1, rater r2 WHERE Rt1.id = r2.id GROUP BY r2.id)) AND Rt.id = R.id AND Rt.restaurantID = Rst.restaurantID Rt.restaurantID");
+	$queryK = pg_query($conn, "SELECT R.usrName, R.join_date, R.rep, Rt.rating_date, Rst.name FROM rater R, rating Rt, restaurant Rst WHERE R.id IN (SELECT r1.id FROM rater r1 GROUP BY r1.id HAVING (SELECT AVG(Rt.mood + Rt.food) FROM rating Rt WHERE Rt.id = r1.id) >= ALL (SELECT AVG(Rt1.mood + Rt1.food) FROM rating Rt1, rater r2 WHERE Rt1.id = r2.id GROUP BY r2.id)) AND Rt.id = R.id AND Rt.restaurantID = Rst.restaurantID");
 
 	print "<pre>\n";
 	print "QUERY K\n\n";
