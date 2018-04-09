@@ -670,7 +670,7 @@
 	// %%%%%%%%%%%%%%%%% QUERY E %%%%%%%%%%%%%%%%%
 
 
-	$queryE = pg_query($conn, "SELECT price FROM menuItem , (SELECT )WHERE ");
+	$queryE = pg_query($conn, "SELECT R.type, Mi.category, AVG(Mi.price) AS avgp FROM menuItem Mi, restaurant R WHERE Mi.restaurantID IN (SELECT r1.restaurantID FROM restaurant r1 WHERE r1.type = R.type) AND Mi.restaurantID = R.restaurantID GROUP BY R.type, Mi.category ORDER BY R.type, Mi.category");
 
 
 	print "<pre>\n";
@@ -680,24 +680,18 @@
 
 		echo '<table>
         <tr>
-         <td>I_Name</td>
-         <td>Price</td>
-         <td>M_Name</td>
-         <td>Open</td>
-         <td>Close</td>
-         <td>url</td>
+         <td>R_Type</td>
+         <td>Category</td>
+         <td>AVG Price</td>
 
         </tr>';
 
 		foreach($fetch as $array)
 		{
 		    echo '<tr>
-		    		<td>'. $array['itemname'].'</td>
-		    		<td>'. $array['price'].'</td>
-		            <td>'. $array['manager_name'].'</td>
-		            <td>'. $array['open_hour'].'</td>
-		            <td>'. $array['close_hour'].'</td>
-		            <td>'. $array['url'].'</td>
+		    		<td>'. $array['type'].'</td>
+		    		<td>'. $array['category'].'</td>
+		            <td>'. $array['avgp'].'</td>
 
 		          </tr>';
 		}
@@ -1030,8 +1024,6 @@
 
 
 	// %%%%%%%%%%%%%%%%% QUERY O %%%%%%%%%%%%%%%%%
-
-	$testString122 = "Shawarma Palooza";
 
 	$queryO = pg_query($conn, "SELECT Rtr.usrName, Rtr.type, Rtr.email, R.name, Rt.food, Rt.price, Rt.mood, Rt.staff, Rt.comments FROM rater Rtr, rating Rt, restaurant R WHERE Rtr.id IN (SELECT Rtr.id FROM rater Rtr GROUP BY Rtr.id HAVING (SELECT MAX(stddev) FROM (SELECT stddev(Rt.mood + Rt.staff + Rt.food + Rt.price) AS stddev FROM rating Rt WHERE Rt.id = Rtr.id GROUP BY Rt.restaurantID) temp1) >= ALL((SELECT MAX(stddev) FROM (SELECT stddev(Rt1.mood + Rt1.food + Rt1.staff + Rt1.price) FROM rating Rt1 GROUP BY Rt1.id, Rt1.restaurantID) AS stddev))) AND Rt.id = Rtr.id AND Rt.restaurantID = R.restaurantID AND R.restaurantID IN (SELECT r1.restaurantID FROM restaurant r1 GROUP BY r1.restaurantID HAVING (SELECT MAX(stddev) FROM (SELECT stddev(Rt2.mood + Rt2.food + Rt2.price + Rt2.staff) as stddev FROM rating Rt2 WHERE Rt2.restaurantID = r1.restaurantID GROUP BY Rt2.restaurantID,Rt2.id) AS temp1) >= ALL ((SELECT MAX(stddev) FROM (SELECT stddev(Rt3.food + Rt3.mood + Rt3.price + Rt3.staff) FROM rating Rt3 GROUP BY Rt3.id,Rt3.restaurantID) AS temp1)))");
 
