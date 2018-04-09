@@ -475,7 +475,7 @@
 				}
 
 				if($miRN){
-					$removeRater = pg_query($conn, "DELETE FROM menuItem WHERE menuItem.itemName = '$rIName' AND menuItem.itemID = '$mm'");
+					$removeRater = pg_query($conn, "DELETE FROM menuItem WHERE menuItem.itemName = '$miRN' AND menuItem.itemID = '$mm'");
 				}
 
 				
