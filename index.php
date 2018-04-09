@@ -461,7 +461,7 @@
 				}
 
 				if($dRN){
-					$removeRestaurant = pg_query($conn, "DELETE FROM restaurant WHERE restaurant.name = '$dRN' AND restaurant.restaurantID = '$bb'");
+					$removeRestaurant = pg_query($conn, "DELETE FROM restaurant WHERE restaurant.name = '$dRN' AND restaurant.restaurantID = '$dRI'");
 				}
 
 				if($rtrEmail){
