@@ -320,15 +320,15 @@
 
 				<form method="post" action="">
 					EMAIL
-					<input type="text" name="rtrEmail">
-					<br>USER NAME
-					<input type="text" name="rtrName">
-					<br>ENTER TODAY'S DATE
-					<input type="text" name="rtrJDate">
-					<br>TYPE
-					<input type="text" name="rtrType">
-					<br>REPUTATION
-					<input type="text" name="rtrRep">
+					<input type="text" name="rtrEmail" placeholder="Email">
+					<br>
+					<input type="text" name="rtrName" placeholder="User Name">
+					<br>
+					<input type="text" name="rtrJDate" placeholder="Date">
+					<br>
+					<input type="text" name="rtrType" placeholder="Type">
+					<br>
+					<input type="text" name="rtrRep" placeholder="Reputation">
 					<br>
 					<input type="submit" name="Submit2">
 				</form>
@@ -340,10 +340,10 @@
 				<p class="functionTitle">REMOVE A RATER:</p>
 
 				<form method="post" action="">
-					NAME
-					<input type="text" name="ratName">
-					<br>ID
-					<input type="text" name="ratID">
+					
+					<input type="text" name="ratName" placeholder="Name">
+					<br>
+					<input type="text" name="ratID" placeholder="ID">
 					<br>
 					<input type="submit" name="Submit">
 				</form>
@@ -356,12 +356,12 @@
 				<p class="functionTitle">ADD A RESTAURANT:</p>
 
 				<form method="post" action="">
-					NAMEx
-					<input type="text" name="rName">
-					<br>Type
-					<input type="text" name="rType">
-					<br>URL
-					<input type="text" name="rURL">
+					
+					<input type="text" name="rName" placeholder="Name">
+					<br>
+					<input type="text" name="rType" placeholder="Type">
+					<br>
+					<input type="text" name="rURL" placeholder="URL">
 					<br>
 					<input type="submit" name="Submit">
 				</form>
@@ -374,10 +374,10 @@
 				<p class="functionTitle">REMOVE A RESTAURANT:</p>
 
 				<form method="post" action="">
-					NAME
-					<input type="text" name="dRName">
-					<br>ID
-					<input type="text" name="dRID">
+					
+					<input type="text" name="dRName" placeholder="Name">
+					<br>
+					<input type="text" name="dRID" placeholder="ID">
 					<br>
 					<input type="submit" name="Submit">
 				</form>
