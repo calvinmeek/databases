@@ -922,7 +922,7 @@
 
 	$testString122 = "Shawarma Palooza";
 
-	$queryM = pg_query($conn, "SELECT Rst.name, R.usrName, COUNT(*) FROM restaurant Rst, rater R, rating Rt WHERE R.id = Rt.id AND Rt.restaurantID = Rst.restaurantID AND Rst.name = '$testString12' GROUP BY R.usrName, Rst.name HAVING COUNT(*) > (SELECT AVG(freq) FROM (SELECT COUNT(*) AS freq FROM FROM restaurant Rst, rater R, rating Rt WHERE R.id = Rt.id AND Rt.restaurantID = Rst.restaurantID AND Rst.name = '$testString12' GROUP BY R.usrName, Rst.name) AS freq)");
+	$queryM = pg_query($conn, "SELECT Rst.name, R.usrName, COUNT(*) FROM restaurant Rst, rater R, rating Rt WHERE R.id = Rt.id AND Rt.restaurantID = Rst.restaurantID AND Rst.name = '$testString12' GROUP BY R.usrName, Rst.name HAVING COUNT(*) > (SELECT AVG(freq) FROM (SELECT COUNT(*) AS freq FROM restaurant Rst, rater R, rating Rt WHERE R.id = Rt.id AND Rt.restaurantID = Rst.restaurantID AND Rst.name = '$testString12' GROUP BY R.usrName, Rst.name) AS freq)");
 
 	print "<pre>\n";
 	print "QUERY M\n\n";
