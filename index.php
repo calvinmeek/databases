@@ -313,10 +313,14 @@
 		<p>TEST</p>
 
 		<div>
-			
+			<p>ADD A RESTAURANT:</p>
 			<form>
-				<p>ADD A RESTAURANT:</p>
+				NAME<br>
 				<input type="text" name="rName">
+				Type<br>
+				<input type="text" name="rType">
+				URL<br>
+				<input type="text" name="rURL">
 			</form>
 
 		</div>
