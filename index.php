@@ -315,12 +315,13 @@
 		<div>
 			<p>ADD A RESTAURANT:</p>
 			<form method="post" action="">
-				NAME<br>
+				<br>NAME<br>
 				<input type="text" name="rName">
-				Type<br>
+				<br>Type<br>
 				<input type="text" name="rType">
-				URL<br>
+				<br>URL<br>
 				<input type="text" name="rURL">
+				<br>
 				<input type="submit" name="Submit">
 			</form>
 
