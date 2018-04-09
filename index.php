@@ -777,7 +777,7 @@
 
 	$testString5 = "Calvin";
 
-	$queryH = pg_query($conn, "SELECT R.name, L.first_open_date FROM restaurant R, location L WHERE R.restaurantID IN (SELECT Rt.restaurantID FROM rating Rt WHERE Rt.staff < AND (SELECT Rt.staff FROM rating Rt WHERE Rt.id = '$testString5')) AND R.restaurantID = L.restaurantID");
+	$queryH = pg_query($conn, "SELECT R.name, L.first_open_date FROM restaurant R, location L WHERE R.restaurantID IN (SELECT Rt.restaurantID FROM rating Rt WHERE Rt.staff < ANY (SELECT Rt.staff FROM rating Rt WHERE Rt.id = '$testString5')) AND R.restaurantID = L.restaurantID");
 
 	print "<pre>\n";
 	print "QUERY H\n\n";
