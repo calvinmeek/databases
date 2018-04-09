@@ -319,15 +319,15 @@
 				<p class="functionTitle">REGISTER AS A RATER:</p>
 
 				<form method="post" action="">
-					EMAIL<br>
+					EMAIL
 					<input type="text" name="rtrEmail">
-					<br>USER NAME<br>
+					<br>USER NAME
 					<input type="text" name="rtrName">
-					<br>ENTER TODAY'S DATE<br>
+					<br>ENTER TODAY'S DATE
 					<input type="text" name="rtrJDate">
-					<br>TYPE<br>
+					<br>TYPE
 					<input type="text" name="rtrType">
-					<br>REPUTATION<br>
+					<br>REPUTATION
 					<input type="text" name="rtrRep">
 					<br>
 					<input type="submit" name="Submit2">
@@ -340,9 +340,9 @@
 				<p class="functionTitle">REMOVE A RATER:</p>
 
 				<form method="post" action="">
-					NAME<br>
+					NAME
 					<input type="text" name="ratName">
-					<br>ID<br>
+					<br>ID
 					<input type="text" name="ratID">
 					<br>
 					<input type="submit" name="Submit">
@@ -356,11 +356,11 @@
 				<p class="functionTitle">ADD A RESTAURANT:</p>
 
 				<form method="post" action="">
-					NAME<br>
+					NAMEx
 					<input type="text" name="rName">
-					<br>Type<br>
+					<br>Type
 					<input type="text" name="rType">
-					<br>URL<br>
+					<br>URL
 					<input type="text" name="rURL">
 					<br>
 					<input type="submit" name="Submit">
@@ -374,9 +374,9 @@
 				<p class="functionTitle">REMOVE A RESTAURANT:</p>
 
 				<form method="post" action="">
-					NAME<br>
+					NAME
 					<input type="text" name="dRName">
-					<br>ID<br>
+					<br>ID
 					<input type="text" name="dRID">
 					<br>
 					<input type="submit" name="Submit">
