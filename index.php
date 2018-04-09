@@ -35,7 +35,7 @@
 
 
 
-	$rating = pg_query($conn, "CREATE TABLE IF NOT EXISTS rating(id INT REFERENCES rater(id), rating_date VARCHAR(10), price INT, food INT, mood INT, staff INT, comments VARCHAR(255), restaurantID INT REFERENCES restaurant(restaurantID) ON DELETE CASCADE, PRIMARY KEY(id,rating_date))");
+	$rating = pg_query($conn, "CREATE TABLE IF NOT EXISTS rating(id INT REFERENCES rater(id), rating_date VARCHAR(10), price INT, food INT, mood INT, staff INT, comments VARCHAR(255), restaurantID INT REFERENCES restaurant(restaurantID), PRIMARY KEY(id,rating_date) ON DELETE CASCADE)");
 
 
 
