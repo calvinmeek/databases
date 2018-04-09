@@ -326,9 +326,11 @@
 
 			<?php
 
-				echo $_POST["rName"];
+				$rstN = $_POST["rName"];
+				$rstT = $_POST["rType"];
+				$rstU = $_POST["rURL"];
 
-				$addRestaurant = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('$_POST['rName']','$_POST['rType']','$_POST['rURL']')");
+				$addRestaurant = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('$rstN','$rstT','$rstU')");
 
 
 			?>
