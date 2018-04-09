@@ -469,11 +469,11 @@
 				}
 
 				if($miName){
-					$rater0 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('$miName','$miType','$miCate','$miDesc','$miPrice ','$miRID')");
+					$rater0 = pg_query($conn, "INSERT INTO menuItem(name,type,category,description,price,restaurantID) VALUES ('$miName','$miType','$miCate','$miDesc','$miPrice ','$miRID')");
 				}
 
-				if($ratName){
-					$removeRater = pg_query($conn, "DELETE FROM rater WHERE rater.usrName = '$ratName' AND rater.id = '$ratID'");
+				if($miRN){
+					$removeRater = pg_query($conn, "DELETE FROM menuItem WHERE menuItem.itemName = '$rIName' AND menuItem.id = '$miRID'");
 				}
 
 				
