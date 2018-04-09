@@ -925,6 +925,7 @@
 	$queryL = pg_query($conn, "SELECT R.usrName, R.rep, Rst.name, Rt.rating_date FROM rater R, rating Rt, restaurant Rst WHERE R.id = Rt.id GROUP BY Rst.name, R.usrName, Rt.rating_date HAVING (Rt.food + Rt.mood) > 7");
 
 	print "<pre>\n";
+	print "QUERY L\n\n";
 
 	if ($fetch = pg_fetch_all($queryL)) {
 
