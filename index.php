@@ -452,6 +452,7 @@
 
 				$miRN = $_POST["rIName"];
 				$miRID = $_POST["rIID"];
+				$mm = (int)$miRID;
 
 				if($rstN){
 					$addRestaurant = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('$rstN','$rstT','$rstU')");
@@ -474,7 +475,7 @@
 				}
 
 				if($miRN){
-					$removeRater = pg_query($conn, "DELETE FROM menuItem WHERE menuItem.itemName = '$rIName' AND menuItem.itemID = '$miRID'");
+					$removeRater = pg_query($conn, "DELETE FROM menuItem WHERE menuItem.itemName = '$rIName' AND menuItem.id = '$mm'");
 				}
 
 				
