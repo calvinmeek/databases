@@ -918,39 +918,7 @@
 
 
 
-	// %%%%%%%%%%%%%%%%% QUERY M %%%%%%%%%%%%%%%%%
-
-	$testString122 = "Shawarma Palooza";
-
-	$queryM = pg_query($conn, "SELECT Rst.name, R.usrName, COUNT(*) FROM restaurant Rst, rater R, rating Rt WHERE R.id = Rt.id AND Rt.restaurantID = Rst.restaurantID AND Rst.name = '$testString12' GROUP BY R.usrName, Rst.name HAVING COUNT(*) > (SELECT AVG(freq) FROM (SELECT COUNT(*) AS freq FROM restaurant Rst, rater R, rating Rt WHERE R.id = Rt.id AND Rt.restaurantID = Rst.restaurantID AND Rst.name = '$testString12' GROUP BY R.usrName, Rst.name) AS freq)");
-
-	print "<pre>\n";
-	print "QUERY M\n\n";
-
-	if ($fetch = pg_fetch_all($queryM)) {
-
-		echo '<table>
-        <tr>
-         <td>freq</td>
-         <td>usrname</td>
-         <td>count</td>
-        </tr>';
-
-		foreach($fetch as $array)
-		{
-		    echo '<tr>
-		    		<td>'. $array['freq'].'</td>
-		    		<td>'. $array['usrname'].'</td>
-		    		<td>'. $array['count'].'</td>
-		    		
-		          </tr>';
-		}
-		echo '</table>';
-
-	  	echo "<br />\n";
-	} else {
-	  echo "NO RECORDS FOUND";
-	}
+	
 
 
 	// %%%%%%%%%%%%%%%%% QUERY L %%%%%%%%%%%%%%%%%
@@ -979,6 +947,43 @@
 		    		<td>'. $array['rep'].'</td>
 		    		<td>'. $array['name'].'</td>
 		    		<td>'. $array['rating_date'].'</td>
+		          </tr>';
+		}
+		echo '</table>';
+
+	  	echo "<br />\n";
+	} else {
+	  echo "NO RECORDS FOUND";
+	}
+
+
+	
+
+	// %%%%%%%%%%%%%%%%% QUERY M %%%%%%%%%%%%%%%%%
+
+	$testString122 = "Shawarma Palooza";
+
+	$queryM = pg_query($conn, "SELECT Rst.name, R.usrName, COUNT(*) FROM restaurant Rst, rater R, rating Rt WHERE R.id = Rt.id AND Rt.restaurantID = Rst.restaurantID AND Rst.name = '$testString12' GROUP BY R.usrName, Rst.name HAVING COUNT(*) > (SELECT AVG(freq) FROM (SELECT COUNT(*) AS freq FROM restaurant Rst, rater R, rating Rt WHERE R.id = Rt.id AND Rt.restaurantID = Rst.restaurantID AND Rst.name = '$testString12' GROUP BY R.usrName, Rst.name) AS freq)");
+
+	print "<pre>\n";
+	print "QUERY M\n\n";
+
+	if ($fetch = pg_fetch_all($queryM)) {
+
+		echo '<table>
+        <tr>
+         <td>freq</td>
+         <td>usrname</td>
+         <td>count</td>
+        </tr>';
+
+		foreach($fetch as $array)
+		{
+		    echo '<tr>
+		    		<td>'. $array['freq'].'</td>
+		    		<td>'. $array['usrname'].'</td>
+		    		<td>'. $array['count'].'</td>
+		    		
 		          </tr>';
 		}
 		echo '</table>';
