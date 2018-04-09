@@ -957,7 +957,7 @@
 
 	$testString122 = "Shawarma Palooza";
 
-	$queryM = pg_query($conn, "SELECT Rst.name, R.usrName, COUNT(*) FROM restaurant Rst, rater R, rating Rt WHERE R.id = Rt.id AND Rt.restaurantID = Rst.restaurantID AND Rst.name = '$testString12' GROUP BY R.usrName, Rst.name HAVING COUNT(*) > (SELECT AVG(freq) FROM (SELECT COUNT(*) AS freq FROM restaurant Rst, rater R, rating Rt WHERE R.id = Rt.id AND Rt.restaurantID = Rst.restaurantID AND Rst.name = '$testString12' GROUP BY R.usrName, Rst.name) AS freq)");
+	$queryM = pg_query($conn, "SELECT R.usrName, R.rep, Rt.comments FROM rater R, rating Rt WHERE R.id IN (SELECT u1.id FROM rater r1 WHERE (SELECT COUNT(*) FROM rating Rt WHERE Rt.id = r1.id AND Rt.restaurantID IN (SELECT Rst.restaurantID FROM restaurant Rst WHERE Rst.name = '$testString122')) >= ALL (SELECT COUNT(*) FROM rating rt1 WHERE rt1.restaurantID IN (SELECT Rst.restaurantID FROM restaurant Rst WHERE Rst.name = '$testString122') GROUP BY rt1.id)) AND Rt.id = R.id AND Rt.restaurantID IN (SELECT R.restaurantID FROM restaurant R WHERE R.name = '$testString122'))");
 
 	print "<pre>\n";
 	print "QUERY M\n\n";
@@ -966,17 +966,17 @@
 
 		echo '<table>
         <tr>
-         <td>freq</td>
+         <td>rep</td>
          <td>usrname</td>
-         <td>count</td>
+         <td>comments</td>
         </tr>';
 
 		foreach($fetch as $array)
 		{
 		    echo '<tr>
-		    		<td>'. $array['freq'].'</td>
+		    		<td>'. $array['rep'].'</td>
 		    		<td>'. $array['usrname'].'</td>
-		    		<td>'. $array['count'].'</td>
+		    		<td>'. $array['comments'].'</td>
 		    		
 		          </tr>';
 		}
