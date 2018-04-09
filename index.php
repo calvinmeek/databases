@@ -312,6 +312,15 @@
 
 		<p>TEST</p>
 
+		<div>
+			
+			<form>
+				<p>ADD A RESTAURANT:</p>
+				<input type="text" name="rName">
+			</form>
+
+		</div>
+
 	</html>
 
 <?php
