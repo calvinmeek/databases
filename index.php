@@ -349,6 +349,7 @@
 			<form method="post" action="">
 				NAME<br>
 				<input type="text" name="dRName">
+				<input type="text" name="dRID">
 				<input type="submit" name="Submit">
 			</form>
 
@@ -359,13 +360,14 @@
 				$rstU = $_POST["rURL"];
 
 				$dRN = $_POST["dRName"];
+				$dRI = $_POST["dRID"];
 
 				if($rstN){
 					$addRestaurant = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('$rstN','$rstT','$rstU')");
 				}
 
 				if($dRN){
-					$removeRestaurant = pg_query($conn, "DELETE FROM restaurant WHERE restaurant.name = '$dRN'");
+					$removeRestaurant = pg_query($conn, "DELETE FROM restaurant WHERE restaurant.name = '$dRN' AND restaurant.restaurantID = '$dRI'");
 				}
 
 				
