@@ -957,7 +957,7 @@
 
 	$testString122 = "Shawarma Palooza";
 
-	$queryM = pg_query($conn, "SELECT R.usrName, R.rep, Rt.comments FROM rater R, rating Rt WHERE R.id IN (SELECT u1.id FROM rater r1 WHERE (SELECT COUNT(*) FROM rating Rt WHERE Rt.id = r1.id AND Rt.restaurantID IN (SELECT Rst.restaurantID FROM restaurant Rst WHERE Rst.name = '$testString122')) >= ALL (SELECT COUNT(*) FROM rating rt1 WHERE rt1.restaurantID IN (SELECT Rst.restaurantID FROM restaurant Rst WHERE Rst.name = '$testString122') GROUP BY rt1.id)) AND Rt.id = R.id AND Rt.restaurantID IN (SELECT R.restaurantID FROM restaurant R WHERE R.name = '$testString122')");
+	$queryM = pg_query($conn, "SELECT R.usrName, R.rep, Rt.comments FROM rater R, rating Rt WHERE R.id IN (SELECT r1.id FROM rater r1 WHERE (SELECT COUNT(*) FROM rating Rt WHERE Rt.id = r1.id AND Rt.restaurantID IN (SELECT Rst.restaurantID FROM restaurant Rst WHERE Rst.name = '$testString122')) >= ALL (SELECT COUNT(*) FROM rating rt1 WHERE rt1.restaurantID IN (SELECT Rst.restaurantID FROM restaurant Rst WHERE Rst.name = '$testString122') GROUP BY rt1.id)) AND Rt.id = R.id AND Rt.restaurantID IN (SELECT R.restaurantID FROM restaurant R WHERE R.name = '$testString122')");
 
 	print "<pre>\n";
 	print "QUERY M\n\n";
