@@ -384,13 +384,44 @@
 
 			</div>
 
-			
+			<div class="functionBox">
+				
+				<p class="functionTitle">ADD AN ITEM:</p>
+
+				<form method="post" action="">
+					
+					<input type="text" name="iName" placeholder="Name">
+					<br>
+					<input type="text" name="iType" placeholder="Type">
+					<br>
+					<input type="text" name="iCate" placeholder="URL">
+					<br>
+					<input type="text" name="iDesc" placeholder="URL">
+					<br>
+					<input type="text" name="iPrice" placeholder="URL">
+					<br>
+					<input type="text" name="iRID" placeholder="URL">
+					<br>
+					<input type="submit" name="Submit">
+				</form>
+
+			</div>
 
 
-			
+			<div class="functionBox">
+				
+				<p class="functionTitle">REMOVE AN ITEM:</p>
 
-			
+				<form method="post" action="">
+					
+					<input type="text" name="rIName" placeholder="Name">
+					<br>
+					<input type="text" name="rIID" placeholder="ID">
+					<br>
+					<input type="submit" name="Submit">
+				</form>
 
+			</div>
 			
 
 			<?php
@@ -411,6 +442,16 @@
 				$ratName = $_POST["ratName"];
 				$ratID = $_POST["ratID"];
 
+				$miName = $_POST['iName'];
+				$miType = $_POST['iType'];
+				$miCate = $_POST['iCate'];
+				$miDesc = $_POST['iDesc'];
+				$miPrice = $_POST['iPrice'];
+				$miRID = $_POST['iRID'];
+
+				$miRN = $_POST['rIName'];
+				$miRID = $_POST['rIID'];
+
 				if($rstN){
 					$addRestaurant = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('$rstN','$rstT','$rstU')");
 				}
@@ -421,6 +462,14 @@
 
 				if($rtrEmail){
 					$rater0 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('$rtrEmail','$rtrName','$rtrJDate','$rtrType','$rtrRep')");
+				}
+
+				if($ratName){
+					$removeRater = pg_query($conn, "DELETE FROM rater WHERE rater.usrName = '$ratName' AND rater.id = '$ratID'");
+				}
+
+				if($miName){
+					$rater0 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('$miName','$miType','$miCate','$miDesc','$miPrice ','$miRID')");
 				}
 
 				if($ratName){
