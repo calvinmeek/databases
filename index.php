@@ -511,7 +511,7 @@
 
 					$result = pg_query($conn, "SELECT * FROM rater");
 
-					print "\n\n";
+					print "<pre>\n";
 					print "RATER TABLE\n\n";
 
 					if ($fetch = pg_fetch_all($result)) {
