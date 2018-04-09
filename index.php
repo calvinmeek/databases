@@ -349,7 +349,9 @@
 			<form method="post" action="">
 				NAME<br>
 				<input type="text" name="dRName">
+				<br>ID<br>
 				<input type="text" name="dRID">
+				<br>
 				<input type="submit" name="Submit">
 			</form>
 
