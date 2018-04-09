@@ -310,12 +310,11 @@
 			<link rel="stylesheet" type="text/css" href="style.css">
 		</head>
 
-		<p>TEST</p>
-
 		<div>
 			<p>ADD A RESTAURANT:</p>
+
 			<form method="post" action="">
-				<br>NAME<br>
+				NAME<br>
 				<input type="text" name="rName">
 				<br>Type<br>
 				<input type="text" name="rType">
@@ -324,6 +323,12 @@
 				<br>
 				<input type="submit" name="Submit">
 			</form>
+
+			<?php
+
+				echo $_POST["rName"];
+
+			?>
 
 		</div>
 
