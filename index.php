@@ -39,7 +39,7 @@
 
 
 
-	$location = pg_query($conn, "CREATE TABLE IF NOT EXISTS location(locationID SERIAL PRIMARY KEY, first_open_date VARCHAR(25) NOT NULL, manager_name VARCHAR(25) NOT NULL, phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restaurantID INT REFERENCES restaurant(restaurantID) ON DELETE CASCADE)")
+	$location = pg_query($conn, "CREATE TABLE IF NOT EXISTS location(locationID SERIAL PRIMARY KEY, first_open_date VARCHAR(25) NOT NULL, manager_name VARCHAR(25) NOT NULL, phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restaurantID INT REFERENCES restaurant(restaurantID) ON DELETE CASCADE)");
 
 
 
