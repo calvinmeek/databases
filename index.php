@@ -319,7 +319,7 @@
 				<p class="functionTitle">REGISTER AS A RATER:</p>
 
 				<form method="post" action="">
-					EMAIL
+					
 					<input type="text" name="rtrEmail" placeholder="Email">
 					<br>
 					<input type="text" name="rtrName" placeholder="User Name">
