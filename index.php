@@ -398,7 +398,7 @@
 				}
 
 				if($ratName){
-					$removeRater = pg_query($conn, "DELETE FROM restaurant WHERE rater.usrName = '$ratName' AND rater.id = '$ratID'");
+					$removeRater = pg_query($conn, "DELETE FROM rater WHERE rater.usrName = '$ratName' AND rater.id = '$ratID'");
 				}
 
 				
