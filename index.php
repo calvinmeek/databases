@@ -918,11 +918,46 @@
 
 
 
+	// %%%%%%%%%%%%%%%%% QUERY M %%%%%%%%%%%%%%%%%
+
+	$testString122 = "Shawarma Palooza";
+
+	$queryM = pg_query($conn, "SELECT Rst.name, R.usrName, COUNT(*) FROM restaurant Rst, rater R, rating Rt WHERE R.id = Rt.id AND Rt.restaurantID = Rst.restaurantID AND Rst.name = '$testString12' GROUP BY R.usrName, Rst.name HAVING COUNT(*) > (SELECT AVG(freq) FROM (SELECT COUNT(*) AS freq FROM FROM restaurant Rst, rater R, rating Rt WHERE R.id = Rt.id AND Rt.restaurantID = Rst.restaurantID AND Rst.name = '$testString12' GROUP BY R.usrName, Rst.name) AS freq)");
+
+	print "<pre>\n";
+	print "QUERY M\n\n";
+
+	if ($fetch = pg_fetch_all($queryM)) {
+
+		echo '<table>
+        <tr>
+         <td>freq</td>
+         <td>usrname</td>
+         <td>count</td>
+        </tr>';
+
+		foreach($fetch as $array)
+		{
+		    echo '<tr>
+		    		<td>'. $array['freq'].'</td>
+		    		<td>'. $array['usrname'].'</td>
+		    		<td>'. $array['count'].'</td>
+		    		
+		          </tr>';
+		}
+		echo '</table>';
+
+	  	echo "<br />\n";
+	} else {
+	  echo "NO RECORDS FOUND";
+	}
+
+
 	// %%%%%%%%%%%%%%%%% QUERY L %%%%%%%%%%%%%%%%%
 
 	// $testString12 = "Asian";
 
-	$queryL = pg_query($conn, "SELECT DISTINCT R.usrName, R.rep, Rst.name, Rt.rating_date FROM rater R, rating Rt, restaurant Rst WHERE R.id = Rt.id GROUP BY Rst.name, R.usrName, R.rep, Rt.rating_date, Rt.food, Rt.mood HAVING (Rt.food >= 4 ) OR (Rt.mood >= 4)");
+	$queryL = pg_query($conn, "SELECT R.usrName, R.rep, Rst.name, Rt.rating_date FROM rater R, rating Rt, restaurant Rst WHERE R.id = Rt.id GROUP BY Rst.name, R.usrName, R.rep, Rt.rating_date, Rt.food, Rt.mood HAVING (Rt.food >= 4 ) OR (Rt.mood >= 4)");
 
 	print "<pre>\n";
 	print "QUERY L\n\n";
