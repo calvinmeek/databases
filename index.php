@@ -1186,7 +1186,7 @@
 
 	$testString122 = "Shawarma Palooza";
 
-	$queryN = pg_query($conn, "SELECT Rtr.usrName, Rtr.email FROM rater Rtr WHERE Rtr.id IN (SELECT R.id FROM rating R WHERE (R.price + R.food + R.mood + R.staff) < ANY (SELECT (R.price + R.food + R.mood + R.staff) FROM rating R WHERE R.id IN (SELECT Rtr.id FROM rater Rtr WHERE Rtr.usrName = 'John')))")
+	$queryN = pg_query($conn, "SELECT Rtr.usrName, Rtr.email FROM rater Rtr WHERE Rtr.id IN (SELECT R.id FROM rating R WHERE (R.price + R.food + R.mood + R.staff) < ANY (SELECT (R.price + R.food + R.mood + R.staff) FROM rating R WHERE R.id IN (SELECT Rtr.id FROM rater Rtr WHERE Rtr.usrName = 'John')))");
 
 	print "<pre>\n";
 	print "QUERY N\n\n";
