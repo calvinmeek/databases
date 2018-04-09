@@ -344,13 +344,31 @@
 				<input type="submit" name="Submit">
 			</form>
 
+			<p>REMOVE A RESTAURANT:</p>
+
+			<form method="post" action="">
+				NAME<br>
+				<input type="text" name="dRName">
+				<input type="submit" name="Submit">
+			</form>
+
 			<?php
 
 				$rstN = $_POST["rName"];
 				$rstT = $_POST["rType"];
 				$rstU = $_POST["rURL"];
 
-				$addRestaurant = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('$rstN','$rstT','$rstU')");
+				$dRN = $_POST["dRName"];
+
+				if($rstN){
+					$addRestaurant = pg_query($conn, "DELETE FROM restaurant WHERE restaurant.name = '$dRN'");
+				}
+
+				if($dRN){
+					$removeRestaurant = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('$rstN','$rstT','$rstU')");
+				}
+
+				
 
 
 			?>
