@@ -432,6 +432,7 @@
 
 				$dRN = $_POST["dRName"];
 				$dRI = $_POST["dRID"];
+				$bb = (int)$dRI;
 
 				$rtrEmail = $_POST["rtrEmail"];
 				$rtrName = $_POST["rtrName"];
@@ -441,6 +442,7 @@
 
 				$ratName = $_POST["ratName"];
 				$ratID = $_POST["ratID"];
+				$rr = (int)$ratID;
 
 				$miName = $_POST["iName"];
 				$miType = $_POST["iType"];
@@ -459,7 +461,7 @@
 				}
 
 				if($dRN){
-					$removeRestaurant = pg_query($conn, "DELETE FROM restaurant WHERE restaurant.name = '$dRN' AND restaurant.restaurantID = '$dRI'");
+					$removeRestaurant = pg_query($conn, "DELETE FROM restaurant WHERE restaurant.name = '$dRN' AND restaurant.restaurantID = '$bb'");
 				}
 
 				if($rtrEmail){
@@ -467,7 +469,7 @@
 				}
 
 				if($ratName){
-					$removeRater = pg_query($conn, "DELETE FROM rater WHERE rater.usrName = '$ratName' AND rater.id = '$ratID'");
+					$removeRater = pg_query($conn, "DELETE FROM rater WHERE rater.usrName = '$ratName' AND rater.id = '$rr'");
 				}
 
 				if($miName){
