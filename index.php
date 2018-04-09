@@ -400,7 +400,7 @@
 					<br>
 					<input type="text" name="iPrice" placeholder="Price">
 					<br>
-					<input type="text" name="iRID" placeholder="Restaurant">
+					<input type="text" name="iRID" placeholder="Restaurant ID">
 					<br>
 					<input type="submit" name="Submit">
 				</form>
@@ -469,7 +469,7 @@
 				}
 
 				if($miName){
-					$rater0 = pg_query($conn, "INSERT INTO menuItem(itemName,type,category,description,price,restaurantID) VALUES ('$miName','$miType','$miCate','$miDesc','$miPrice ','$miRID')");
+					$rater0 = pg_query($conn, "INSERT INTO menuItem(itemName,type,category,description,price,restaurantID) VALUES ('$miName','$miType','$miCate','$miDesc','$miPrice','$miRID')");
 				}
 
 				if($miRN){
