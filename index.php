@@ -26,28 +26,28 @@
 
 	// $drop = pg_query($conn, "DROP SCHEMA public CASCADE");
 
-	$rater = pg_query($conn, "CREATE TABLE IF NOT EXISTS rater(id SERIAL PRIMARY KEY ON DELETE CASCADE, email VARCHAR(30) NOT NULL, usrName VARCHAR(15) NOT NULL, join_date VARCHAR(30) NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)");
+	$rater = pg_query($conn, "CREATE TABLE IF NOT EXISTS rater(id SERIAL PRIMARY KEY, email VARCHAR(30) NOT NULL, usrName VARCHAR(15) NOT NULL, join_date VARCHAR(30) NOT NULL, type VARCHAR(15) NOT NULL, rep INT NOT NULL)");
 
 
 
 
-	$restaurant = pg_query($conn, "CREATE TABLE IF NOT EXISTS restaurant(restaurantID SERIAL PRIMARY KEY ON DELETE CASCADE, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, url VARCHAR(255) NOT NULL)");
+	$restaurant = pg_query($conn, "CREATE TABLE IF NOT EXISTS restaurant(restaurantID SERIAL PRIMARY KEY, name VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, url VARCHAR(255) NOT NULL)");
 
 
 
-	$rating = pg_query($conn, "CREATE TABLE IF NOT EXISTS rating(id INT REFERENCES rater(id), rating_date VARCHAR(10), price INT, food INT, 			mood INT, staff INT, comments VARCHAR(255), restaurantID INT REFERENCES restaurant(restaurantID), PRIMARY KEY(id,rating_date))");
+	$rating = pg_query($conn, "CREATE TABLE IF NOT EXISTS rating(id INT REFERENCES rater(id) ON DELETE CASCADE, rating_date VARCHAR(10), price INT, food INT, 			mood INT, staff INT, comments VARCHAR(255), restaurantID INT REFERENCES restaurant(restaurantID) ON DELETE CASCADE, PRIMARY KEY(id,rating_date))");
 
 
 
-	$location = pg_query($conn, "CREATE TABLE IF NOT EXISTS location(locationID SERIAL PRIMARY KEY, first_open_date VARCHAR(25) NOT NULL, manager_name VARCHAR(25) NOT NULL, phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restaurantID INT REFERENCES restaurant(restaurantID))");
+	$location = pg_query($conn, "CREATE TABLE IF NOT EXISTS location(locationID SERIAL PRIMARY KEY, first_open_date VARCHAR(25) NOT NULL, manager_name VARCHAR(25) NOT NULL, phoneNumber VARCHAR(15) NOT NULL, address VARCHAR(255) NOT NULL, open_hour INT NOT NULL, close_hour INT NOT NULL, restaurantID INT REFERENCES restaurant(restaurantID) ON DELETE CASCADE)");
 
 
 
-	$menuItem = pg_query($conn, "CREATE TABLE IF NOT EXISTS menuItem(itemID SERIAL PRIMARY KEY, itemName VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, category VARCHAR(25) NOT NULL, description VARCHAR(255), price INT NOT NULL, restaurantID INT REFERENCES restaurant(restaurantID))");
+	$menuItem = pg_query($conn, "CREATE TABLE IF NOT EXISTS menuItem(itemID SERIAL PRIMARY KEY, itemName VARCHAR(25) NOT NULL, type VARCHAR(25) NOT NULL, category VARCHAR(25) NOT NULL, description VARCHAR(255), price INT NOT NULL, restaurantID INT REFERENCES restaurant(restaurantID) ON DELETE CASCADE)");
 
 
 
-	$ratingItem = pg_query($conn, "CREATE TABLE IF NOT EXISTS ratingItem(id INT REFERENCES rater(id), date_stamp VARCHAR(25) NOT NULL, itemID INT REFERENCES menuItem(itemID) NOT NULL, rating INT NOT NULL, comment VARCHAR(255), PRIMARY KEY(id,date_stamp,itemID))");
+	$ratingItem = pg_query($conn, "CREATE TABLE IF NOT EXISTS ratingItem(id INT REFERENCES rater(id) ON DELETE CASCADE, date_stamp VARCHAR(25) NOT NULL, itemID INT REFERENCES menuItem(itemID) NOT NULL, rating INT NOT NULL, comment VARCHAR(255), PRIMARY KEY(id,date_stamp,itemID))");
 
 
 	if (!$ratingItem && !$menuItem && !$location && !$rating && !$restaurant && !$rater) {
