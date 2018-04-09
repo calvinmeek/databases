@@ -922,7 +922,7 @@
 
 	// $testString12 = "Asian";
 
-	$queryL = pg_query($conn, "SELECT R.usrName, R.rep, Rst.name, Rt.rating_date FROM rater R, rating Rt, restaurant Rst WHERE R.id = Rt.id GROUP BY R.id, R.usrName, Rt.rating_date HAVING (Rt.food + Rt.mood) > 7");
+	$queryL = pg_query($conn, "SELECT R.usrName, R.rep, Rst.name, Rt.rating_date FROM rater R, rating Rt, restaurant Rst WHERE R.id = Rt.id GROUP BY R.name, R.usrName, Rt.rating_date HAVING (Rt.food + Rt.mood) > 7");
 
 	print "<pre>\n";
 
