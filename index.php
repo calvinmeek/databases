@@ -47,7 +47,7 @@
 
 
 
-	$ratingItem = pg_query($conn, "CREATE TABLE IF NOT EXISTS ratingItem(id INT REFERENCES rater(id) ON DELETE CASCADE, date_stamp VARCHAR(25) NOT NULL, itemID INT REFERENCES menuItem(itemID) NOT NULL ON DELETE CASCADE, rating INT NOT NULL, comment VARCHAR(255), PRIMARY KEY(id,date_stamp,itemID))");
+	$ratingItem = pg_query($conn, "CREATE TABLE IF NOT EXISTS ratingItem(id INT REFERENCES rater(id) ON DELETE CASCADE, date_stamp VARCHAR(25) NOT NULL, itemID INT REFERENCES menuItem(itemID) ON DELETE CASCADE, rating INT NOT NULL, comment VARCHAR(255), PRIMARY KEY(id,date_stamp,itemID))");
 
 
 	if (!$ratingItem && !$menuItem && !$location && !$rating && !$restaurant && !$rater) {
