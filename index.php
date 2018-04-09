@@ -347,18 +347,40 @@
 					<br>
 					<input type="submit" name="Submit">
 				</form>
-				
-			</div>
-
-
-			<div class="functionBox">
-				
 
 			</div>
 
 
 			<div class="functionBox">
 				
+				<p class="functionTitle">ADD A RESTAURANT:</p>
+
+				<form method="post" action="">
+					NAME<br>
+					<input type="text" name="rName">
+					<br>Type<br>
+					<input type="text" name="rType">
+					<br>URL<br>
+					<input type="text" name="rURL">
+					<br>
+					<input type="submit" name="Submit">
+				</form>
+
+			</div>
+
+
+			<div class="functionBox">
+				
+				<p class="functionTitle">REMOVE A RESTAURANT:</p>
+
+				<form method="post" action="">
+					NAME<br>
+					<input type="text" name="dRName">
+					<br>ID<br>
+					<input type="text" name="dRID">
+					<br>
+					<input type="submit" name="Submit">
+				</form>
 
 			</div>
 
@@ -367,29 +389,9 @@
 
 			
 
-			<p class="functionTitle">ADD A RESTAURANT:</p>
+			
 
-			<form method="post" action="">
-				NAME<br>
-				<input type="text" name="rName">
-				<br>Type<br>
-				<input type="text" name="rType">
-				<br>URL<br>
-				<input type="text" name="rURL">
-				<br>
-				<input type="submit" name="Submit">
-			</form>
-
-			<p class="functionTitle">REMOVE A RESTAURANT:</p>
-
-			<form method="post" action="">
-				NAME<br>
-				<input type="text" name="dRName">
-				<br>ID<br>
-				<input type="text" name="dRID">
-				<br>
-				<input type="submit" name="Submit">
-			</form>
+			
 
 			<?php
 
