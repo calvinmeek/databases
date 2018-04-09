@@ -361,11 +361,11 @@
 				$dRN = $_POST["dRName"];
 
 				if($rstN){
-					$addRestaurant = pg_query($conn, "DELETE FROM restaurant WHERE restaurant.name = '$dRN'");
+					$addRestaurant = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('$rstN','$rstT','$rstU')");
 				}
 
 				if($dRN){
-					$removeRestaurant = pg_query($conn, "INSERT INTO restaurant(name,type,url) VALUES ('$rstN','$rstT','$rstU')");
+					$removeRestaurant = pg_query($conn, "DELETE FROM restaurant WHERE restaurant.name = '$dRN'");
 				}
 
 				
