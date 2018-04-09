@@ -448,6 +448,7 @@
 				$miDesc = $_POST["iDesc"];
 				$miPrice = $_POST["iPrice"];
 				$miRID = $_POST['iRID'];
+				$m = (int)$miRID;
 
 				$miRN = $_POST["rIName"];
 				$miRID = $_POST["rIID"];
@@ -469,7 +470,7 @@
 				}
 
 				if($miName){
-					$rater0 = pg_query($conn, "INSERT INTO menuItem(itemName,type,category,description,price,restaurantID) VALUES ('$miName','$miType','$miCate','$miDesc','$miPrice','$miRID')");
+					$rater0 = pg_query($conn, "INSERT INTO menuItem(itemName,type,category,description,price,restaurantID) VALUES ('$miName','$miType','$miCate','$miDesc','$miPrice','$m')");
 				}
 
 				if($miRN){
