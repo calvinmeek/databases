@@ -394,13 +394,13 @@
 					<br>
 					<input type="text" name="iType" placeholder="Type">
 					<br>
-					<input type="text" name="iCate" placeholder="URL">
+					<input type="text" name="iCate" placeholder="Category">
 					<br>
-					<input type="text" name="iDesc" placeholder="URL">
+					<input type="text" name="iDesc" placeholder="Description">
 					<br>
-					<input type="text" name="iPrice" placeholder="URL">
+					<input type="text" name="iPrice" placeholder="Price">
 					<br>
-					<input type="text" name="iRID" placeholder="URL">
+					<input type="text" name="iRID" placeholder="Restaurant">
 					<br>
 					<input type="submit" name="Submit">
 				</form>
