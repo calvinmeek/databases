@@ -1029,7 +1029,51 @@
 
 
 
+	// %%%%%%%%%%%%%%%%% QUERY O %%%%%%%%%%%%%%%%%
 
+	$testString122 = "Shawarma Palooza";
+
+	$queryO = pg_query($conn, "SELECT Rtr.usrName, Rtr.type, Rtr.email, R.name, Rt.food, Rt.price, Rt.mood, Rt.staff, Rt.comment FROM rater Rtr, rating Rt, restaurant R IN (SELECT Rtr.id FROM rater Rtr GROUP BY Rtr.id HAVING (SELECT MAX(temp) FROM (SELECT temp(Rt.mood + Rt.staff + Rt.food + Rt.price) AS temp FROM rating Rt WHERE Rt.id = R.id GROUP BY Rt.restaurantID) temp1) >= ALL((SELECT MAX(temp) FROM (SELECT temp(Rt1.mood + Rt1.food + Rt1.staff + Rt1.price) FROM rating Rt1 GROUP BY Rt1.id, Rt1.restaurantID) AS temp1))) AND Rt.id = Rtr.id AND Rt.restaurantID = R.restaurantID AND R.restaurantID IN (SELECT r1.restaurantID FROM restaurant r1 GROUP BY r1.restaurantID HAVING (SELECT MAX(temp) FROM (SELECT temp(Rt2.mood + Rt2.food + Rt2.price + Rt2.staff) as temp FROM rating Rt2 WHERE Rt2.restaurantID = r1.restaurantID GROUP BY Rt2.restaurantID,Rt2.id) AS temp1) >= ALL ((SELECT MAX(temp) FROM (SELECT temp(Rt3.food + Rt3.mood + Rt3.price + Rt3.staff) FROM rating Rt3 GROUP BY Rt3.id,Rt3.restaurantID) AS temp1)))");
+
+	print "<pre>\n";
+	print "QUERY O\n\n";
+
+	if ($fetch = pg_fetch_all($queryO)) {
+
+		echo '<table>
+        <tr>
+         <td>usrname</td>
+         <td>type</td>
+         <td>email</td>
+         <td>name</td>
+         <td>food</td>
+         <td>price</td>
+         <td>mood</td>
+         <td>staff</td>
+         <td>comment</td>
+        </tr>';
+
+		foreach($fetch as $array)
+		{
+		    echo '<tr>
+		    		
+		    		<td>'. $array['usrname'].'</td>
+		    		<td>'. $array['type'].'</td>
+		    		<td>'. $array['email'].'</td>
+		    		<td>'. $array['name'].'</td>
+		    		<td>'. $array['food'].'</td>
+		    		<td>'. $array['price'].'</td>
+		    		<td>'. $array['mood'].'</td>
+		    		<td>'. $array['staff'].'</td>
+		    		<td>'. $array['comment'].'</td>
+		          </tr>';
+		}
+		echo '</table>';
+
+	  	echo "<br />\n";
+	} else {
+	  echo "NO RECORDS FOUND";
+	}
 
 
 
