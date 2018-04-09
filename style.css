@@ -3,3 +3,9 @@ p.functionTitle{
 	color: black;
 	font-weight: bold;
 }
+
+div.functionBox{
+	width: 50%;
+	height: 50%;
+	float: left;
+}

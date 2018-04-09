@@ -314,34 +314,58 @@
 
 		<div>
 
-			<p class="functionTitle">REGISTER AS A RATER:</p>
+			<div class="functionBox">
 
-			<form method="post" action="">
-				EMAIL<br>
-				<input type="text" name="rtrEmail">
-				<br>USER NAME<br>
-				<input type="text" name="rtrName">
-				<br>ENTER TODAY'S DATE<br>
-				<input type="text" name="rtrJDate">
-				<br>TYPE<br>
-				<input type="text" name="rtrType">
-				<br>REPUTATION<br>
-				<input type="text" name="rtrRep">
-				<br>
-				<input type="submit" name="Submit2">
-			</form>
+				<p class="functionTitle">REGISTER AS A RATER:</p>
+
+				<form method="post" action="">
+					EMAIL<br>
+					<input type="text" name="rtrEmail">
+					<br>USER NAME<br>
+					<input type="text" name="rtrName">
+					<br>ENTER TODAY'S DATE<br>
+					<input type="text" name="rtrJDate">
+					<br>TYPE<br>
+					<input type="text" name="rtrType">
+					<br>REPUTATION<br>
+					<input type="text" name="rtrRep">
+					<br>
+					<input type="submit" name="Submit2">
+				</form>
+
+			</div>
+
+			<div class="functionBox">
+				
+				<p class="functionTitle">REMOVE A RATER:</p>
+
+				<form method="post" action="">
+					NAME<br>
+					<input type="text" name="ratName">
+					<br>ID<br>
+					<input type="text" name="ratID">
+					<br>
+					<input type="submit" name="Submit">
+				</form>
+				
+			</div>
 
 
-			<p class="functionTitle">REMOVE A RATER:</p>
+			<div class="functionBox">
+				
 
-			<form method="post" action="">
-				NAME<br>
-				<input type="text" name="ratName">
-				<br>ID<br>
-				<input type="text" name="ratID">
-				<br>
-				<input type="submit" name="Submit">
-			</form>
+			</div>
+
+
+			<div class="functionBox">
+				
+
+			</div>
+
+			
+
+
+			
 
 			<p class="functionTitle">ADD A RESTAURANT:</p>
 
