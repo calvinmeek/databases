@@ -321,9 +321,9 @@
 				<input type="text" name="rtrEmail">
 				<br>USER NAME<br>
 				<input type="text" name="rtrName">
-				<br>ENTER TODAY's DATE<br>
+				<br>ENTER TODAY'S DATE<br>
 				<input type="text" name="rtrJDate">
-				<br>TYPE
+				<br>TYPE<br>
 				<input type="text" name="rtrType">
 				<br>REPUTATION<br>
 				<input type="text" name="rtrRep">
