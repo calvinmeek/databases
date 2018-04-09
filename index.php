@@ -922,7 +922,7 @@
 
 	// $testString12 = "Asian";
 
-	$queryL = pg_query($conn, "SELECT DISTINCT R.usrName, R.rep, Rst.name, Rt.rating_date FROM rater R, rating Rt, restaurant Rst WHERE R.id = Rt.id GROUP BY Rst.name, R.usrName, R.rep, Rt.rating_date, Rt.food, Rt.mood HAVING Rt.food + Rt.mood > 3");
+	$queryL = pg_query($conn, "SELECT DISTINCT R.usrName, R.rep, Rst.name, Rt.rating_date FROM rater R, rating Rt, restaurant Rst WHERE R.id = Rt.id GROUP BY Rst.name, R.usrName, R.rep, Rt.rating_date HAVING (Rt.food >= 4 ) OR (Rt.mood >= 4)");
 
 	print "<pre>\n";
 	print "QUERY L\n\n";
