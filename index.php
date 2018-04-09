@@ -889,7 +889,7 @@
 	// %%%%%%%%%%%%%%%%% QUERY K %%%%%%%%%%%%%%%%%
 
 
-	$queryK = pg_query($conn, "SELECT R.usrName, R.join_date, R.rep FROM rater R, rating Rt, restaurant Rst WHERE Rst.restaurantID = Rt.restaurantID AND R.id = Rt.id AND Rst.restaurantid =  R.id GROUP BY  R.join_date, R.usrName, R.rep HAVING (Rt.food + Rt.mood) > 7");
+	$queryK = pg_query($conn, "SELECT R.usrName, R.join_date, R.rep FROM rater R, rating Rt, restaurant Rst WHERE Rst.restaurantID = Rt.restaurantID AND R.id = Rt.id AND Rst.restaurantid =  R.id GROUP BY R.join_date, R.usrName, R.rep HAVING (Rt.food + Rt.mood) > 7");
 
 	print "<pre>\n";
 	print "QUERY K\n\n";
@@ -922,7 +922,7 @@
 
 	// $testString12 = "Asian";
 
-	$queryL = pg_query($conn, "SELECT R.usrName, R.join_date, R.rep FROM rater R, rating Rt, restaurant Rst WHERE Rst.restaurantID = Rt.restaurantID AND R.id = Rt.id AND Rst.restaurantid =  R.id GROUP BY  R.join_date, R.usrName, R.rep HAVING (Rt.food + Rt.mood) > 7");
+	$queryL = pg_query($conn, "SELECT R.usrName, R.rep, Rst.name, Rt.rating_date FROM rater R, rating Rt, restaurant Rst WHERE R.id = Rt.id GROUP BY R.id, R.usrName, Rt.rating_date HAVING (Rt.food + Rt.mood) > 7");
 
 	print "<pre>\n";
 
@@ -931,14 +931,18 @@
 		echo '<table>
         <tr>
          <td>NAME</td>
+         <td>rep</td>
+         <td>R_NAME</td>
          <td>JOIN_DATE</td>
         </tr>';
 
 		foreach($fetch as $array)
 		{
 		    echo '<tr>
+		    		<td>'. $array['usrname'].'</td>
+		    		<td>'. $array['rep'].'</td>
 		    		<td>'. $array['name'].'</td>
-		    		<td>'. $array['join_date'].'</td>
+		    		<td>'. $array['rating_date'].'</td>
 		          </tr>';
 		}
 		echo '</table>';
