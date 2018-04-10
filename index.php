@@ -521,6 +521,9 @@
 				         <td>ID</td>
 				         <td>Email</td>
 				         <td>Name</td>
+				         <td>Join Date</td>
+				         <td>Type</td>
+				         <td>Rep</td>
 				        </tr>';
 
 						foreach($fetch as $array)
@@ -529,6 +532,9 @@
 						    		<td>'. $array['id'].'</td>
 						            <td>'. $array['email'].'</td>
 						            <td>'. $array['usrname'].'</td>
+						            <td>'. $array['join_date'].'</td>
+						            <td>'. $array['type'].'</td>
+						            <td>'. $array['rep'].'</td>
 						          </tr>';
 						}
 						echo '</table>';
