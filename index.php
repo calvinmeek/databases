@@ -476,7 +476,7 @@
 				}
 
 				if($rtrEmail){
-					$rater0 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('$rtrEmail','$rtrName','$rtrJDate','$rtrType','$rtrRep')");
+					$rater0 = pg_query($conn, "INSERT INTO rater(email,usrName,join_date,type,rep) VALUES ('$rtrEmail','$rtrName','$rtrTDate','$rtrType','$rtrRep')");
 				}
 
 				if($ratName){
